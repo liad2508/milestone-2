@@ -1,10 +1,8 @@
 #include <iostream>
-#include <sys/socket.h>
-#include "Server.h"
-
+#include "./server/Main.h"
+using namespace boot;
 int main() {
-    server_side::Server* s = new server_side::Server();
-    ClientHandler* c = new ClientHandler();
-    s->open(8000, *c , 1);
+    string args[] = {"5400"};
+    boot::Main2::main(args);
     return 0;
 }

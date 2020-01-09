@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="MILESTONE_2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MILESTONE_2">
+				<Option output="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug/MILESTONE_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 MILESTONE_2"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="MILESTONE_2/fast">
+				<Option output="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug/MILESTONE_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 MILESTONE_2/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/idan/Desktop/Advanced\ Programming/MIlestone_2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/CacheManager.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/CacheManager.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/FileCacheManager.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/FileCacheManager.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/ClientHandler.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/ClientHandler.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/MyTestClientHandler.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/MyTestClientHandler.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/main.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/Main.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/Main.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/MyParallelServer.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/MyParallelServer.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/MySerialServer.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/MySerialServer.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/Server.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/server/Server.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/Solver.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/Solver.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/StringReverser.cpp">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/StringReverser.h">
+			<Option target="MILESTONE_2"/>
+		</Unit>
+		<Unit filename="/home/idan/Desktop/Advanced Programming/MIlestone_2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

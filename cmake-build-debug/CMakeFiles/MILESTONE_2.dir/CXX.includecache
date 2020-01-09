@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/CacheManager.h
+iostream
+-
+string.h
+-
+
+/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/ClientHandler.h
+iostream
+-
+../solver/Solver.h
+/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/Solver.h
+
+/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/MyTestClientHandler.cpp
+MyTestClientHandler.h
+/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/MyTestClientHandler.h
+
+/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/MyTestClientHandler.h
+string
+-
+sstream
+-
+iostream
+-
+ClientHandler.h
+/home/idan/Desktop/Advanced Programming/MIlestone_2/clientHandler/ClientHandler.h
+../solver/Solver.h
+/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/Solver.h
+../cache/CacheManager.h
+/home/idan/Desktop/Advanced Programming/MIlestone_2/cache/CacheManager.h
+
+/home/idan/Desktop/Advanced Programming/MIlestone_2/solver/Solver.h
+iostream
+-
+string.h
+-
+
