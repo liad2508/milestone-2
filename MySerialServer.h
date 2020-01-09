@@ -6,9 +6,12 @@
 #define MILESTONE_2_MYSERIALSERVER_H
 
 #include "Server.h"
+#define NUM_OF_CLIENTS 1
 
 class MySerialServer: public server_side::Server {
-
+public:
+    void open(int port, ClientHandler clientHandler);
+    void stop();
 };
 
 

@@ -11,7 +11,7 @@ using namespace std;
 class ClientHandler {
 
 public:
-    void handleClient (int client_socket;);
+    void handleClient (ostringstream* InputStream, ostringstream* OutputStream);
 
 };
 
