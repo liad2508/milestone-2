@@ -19,7 +19,6 @@ void server_side::Server::read(int client_socket, ClientHandler
         const char* answer = OutputStream->str().c_str();
         send(client_socket , answer , strlen(answer) , 0 );
     }
-
     if (InputStream->str() == "end") {
         close(client_socket);
     }
@@ -27,12 +26,11 @@ void server_side::Server::read(int client_socket, ClientHandler
 
 void server_side::Server::stop() {
     this->run_server = false;
-    this->server_running.join();
     close(this->server_socket);
 }
 
 void server_side::Server::open(int port, ClientHandler *clientHandler,
-        int num_of_clients) {
+        int num_of_cli) {
     this->server_socket = socket(AF_INET, SOCK_STREAM, 0);
     if (this->server_socket == -1) {
         //error
@@ -52,14 +50,15 @@ void server_side::Server::open(int port, ClientHandler *clientHandler,
     }
 
     //making socket listen to the port
+    this->num_of_clients =  num_of_cli;
     if (listen(this->server_socket, num_of_clients) == -1) { //can also set to SOMAXCON (max connections)
         throw "Error during listening command";
     } else {
         std::cout<<"Server is now listening ..."<<std::endl;
     }
-    this->listening(clientHandler);
 }
 
+// Should be ran as a thread
 void server_side::Server::listening(ClientHandler *clientHandler){
     while (this->run_server) {
         // Setting timeout
@@ -83,10 +82,7 @@ void server_side::Server::listening(ClientHandler *clientHandler){
         } else {
             break;
         }
-        this->server_running = thread(&server_side::Server::read, this,
-                                      client_socket,
-                                      clientHandler);
-        this->server_running.join();
+        this->read(client_socket, clientHandler);
     }
     if(!this->run_server) {
         close(this->server_socket);

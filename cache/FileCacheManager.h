@@ -96,7 +96,7 @@ public:
             this->elementsIterators[key] = (--last);
             return newObj;
         }
-        return nullptr;
+        throw "Data is not in cache";
     }
 
     // Foreach function

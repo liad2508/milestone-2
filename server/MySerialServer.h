@@ -10,8 +10,7 @@
 
 class MySerialServer: public server_side::Server {
 public:
-    void open(int port, ClientHandler *clientHandler);
-    void stop();
+
 };
 
 

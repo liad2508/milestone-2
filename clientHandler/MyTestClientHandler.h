@@ -10,13 +10,14 @@
 #include "ClientHandler.h"
 #include "../solver/Solver.h"
 #include "../cache/CacheManager.h"
+#include "../solution/Solution.h"
 
 class MyTestClientHandler: public ClientHandler {
     Solver<string, string> *sol;
-    CacheManager<const char*>* cacheManager;
+    CacheManager<Solution<const char*>>* cacheManager;
 public:
-    MyTestClientHandler (Solver<string, string>* so, CacheManager<const char*>*
-            cache) {
+    MyTestClientHandler (Solver<string, string>* so,
+            CacheManager<Solution<const char*>>* cache) {
         this->sol = so;
         this->cacheManager = cache;
     }

@@ -6,11 +6,12 @@
 #define MILESTONE_2_MYPARALLELSERVER_H
 
 #include "Server.h"
-
-class MyParallelServer:server_side::Server {
+#include <vector>
+class MyParallelServer: public server_side::Server {
+private:
+    vector<thread> servers;
 public:
-    void open(int port, ClientHandler *clientHandler);
-    void stop();
+    void Parallel(ClientHandler *clientHandler);
 };
 
 

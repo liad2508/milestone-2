@@ -12,6 +12,8 @@
 #include "MySerialServer.h"
 #include "../clientHandler/MyTestClientHandler.h"
 #include "Server.h"
+#include "../solution/Solution.h"
+
 using namespace server_side;
 
 namespace boot {
@@ -25,12 +27,13 @@ public:
 
         int port = stoi(args[0]);
         Solver<string,string>* solver = new StringReverser();
-        CacheManager<const char*>* cacheManager = new FileCacheManager<const char*>
-                (100);
+        CacheManager<Solution<const char*>>* cacheManager = new
+                FileCacheManager<Solution<const char*>>(100);
         Server* mySerialServer = new MySerialServer();
         ClientHandler* clientHandler = new MyTestClientHandler(solver,
                 cacheManager);
-        thread t(&Server::open,mySerialServer,port,clientHandler,1);
+        mySerialServer->open(port, clientHandler, 1);
+        thread t(&Server::listening,mySerialServer,clientHandler);
         t.join();
     }
 };

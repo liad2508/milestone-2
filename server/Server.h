@@ -26,6 +26,7 @@ protected:
     bool run_server = true;
     thread server_running;
     int server_socket;
+    int num_of_clients;
     sockaddr_in address;
 public:
     Server(){}
