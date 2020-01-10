@@ -86,18 +86,17 @@ public:
                 this->cacheElements.insert(pair<string, T>(key, newObj));
                 this->indexes.push_back(key);
                 return newObj;
-            } else {
-                return nullptr;
             }
         } else {
             newObj = cacheElements[key];
-            list<string>::iterator start = this->elementsIterators[0];
+            list<string>::iterator start = this->elementsIterators[key];
             this->indexes.erase(start);
             this->indexes.push_back(key);
             list<string>::iterator last = this->indexes.end();
             this->elementsIterators[key] = (--last);
             return newObj;
         }
+        return nullptr;
     }
 
     // Foreach function

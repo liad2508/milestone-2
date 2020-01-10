@@ -8,6 +8,5 @@ string StringReverser::solve(string problem) {
 
     string st = problem;
     reverse(st.begin(), st.end());
-    cout << problem << endl;
     return st;
 }

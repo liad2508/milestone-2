@@ -8,16 +8,14 @@ void MyTestClientHandler::handleClient(ostringstream* InputStream,
         ostringstream *OutputStream) {
     stringstream in;
     stringstream problem;
-    problem << InputStream->str() << endl;
+    problem << InputStream->str();
     in << sol->getSolutionType() << "_" << problem.str();
-    cout << this->cacheManager->get(in.str()) << endl;
-    string* s = this->cacheManager->get(in.str());
-    cout << s << endl;
-    if (s == nullptr) {
+    const char* s = this->cacheManager->get(in.str());
+    if (s == NULL) {
         *OutputStream << this->sol->solve(problem.str());
-        string out = string(OutputStream->str());
-        this->cacheManager->insert(in.str(), &out);
+        const char* out = OutputStream->str().c_str();
+        this->cacheManager->insert(in.str(), out);
     } else {
-        OutputStream->str(*s);
+        *OutputStream << s;
     }
 }

@@ -13,9 +13,9 @@
 
 class MyTestClientHandler: public ClientHandler {
     Solver<string, string> *sol;
-    CacheManager<string*>* cacheManager;
+    CacheManager<const char*>* cacheManager;
 public:
-    MyTestClientHandler (Solver<string, string>* so, CacheManager<string*>*
+    MyTestClientHandler (Solver<string, string>* so, CacheManager<const char*>*
             cache) {
         this->sol = so;
         this->cacheManager = cache;
