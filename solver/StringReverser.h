@@ -16,9 +16,7 @@ using namespace std;
 
 class StringReverser: public Solver<string,string> {
 public:
-    StringReverser() {
-        this->solution_type = "String_Reverser";
-    }
+    StringReverser(string sol_type):Solver(sol_type){}
     string solve(string s);
 };
 

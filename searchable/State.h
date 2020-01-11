@@ -16,6 +16,7 @@ private:
     T state;
     double cost;
     State<T>* cameFrom;
+    double route_weight = 0;
 public:
     State(T* st, double c) {
         this->state = st;
@@ -41,7 +42,13 @@ public:
     T getState() {
         return this->state;
     }
-    virtual int equals(State<T> target) = 0;
+    double getRouteWeight() {
+        return this->route_weight;
+    }
+    void setRouteWeight(double weight) {
+        this->route_weight = weight;
+    }
+    virtual int equals(State<T>* target) = 0;
 };
 
 

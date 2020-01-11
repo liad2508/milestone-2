@@ -12,16 +12,9 @@
 
 class Vertex: public State<string> {
 private:
-    double route_weight = 0;
 public:
-    double getRouteWeight() {
-        return this->route_weight;
-    }
-    void setRouteWeight(double weight) {
-        this->route_weight = weight;
-    }
-    int equals(State<string> target) {
-        return strcmp(this->getState().c_str(),target.getState().c_str());
+    int equals(State<string>* target) {
+        return strcmp(this->getState().c_str(),target->getState().c_str());
     }
 };
 

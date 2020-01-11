@@ -13,8 +13,9 @@ class Solver {
 protected:
     string solution_type;
 public:
-virtual Solution solve(Problem problem)=0;
-string getSolutionType() { return solution_type; }
+    Solver(string sol_type) {this->solution_type = sol_type;}
+    virtual Solution solve(Problem problem)=0;
+    string getSolutionType() { return solution_type; }
 };
 
 

@@ -14,10 +14,10 @@
 
 class MyTestClientHandler: public ClientHandler {
     Solver<string, string> *sol;
-    CacheManager<Solution<const char*>>* cacheManager;
+    CacheManager<string>* cacheManager;
 public:
     MyTestClientHandler (Solver<string, string>* so,
-            CacheManager<Solution<const char*>>* cache) {
+            CacheManager<string>* cache) {
         this->sol = so;
         this->cacheManager = cache;
     }

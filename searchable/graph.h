@@ -16,27 +16,27 @@
 
 class Graph:public Searchable<string> {
 private:
-    vector<Vertex*>* vertexes;
-    map<Vertex*,list<Vertex*>*>* edges;
+    vector<State<string>*>* vertexes;
+    map<State<string>*,list<State<string>*>*>* edges;
 public:
     Graph() {
-        this->vertexes = new vector<Vertex*>();
-        this->edges = new map<Vertex*,list<Vertex*>*>;
+        this->vertexes = new vector<State<string>*>();
+        this->edges = new map<State<string>*,list<State<string>*>*>;
         this->goal = -1;
         this->target = -1;
     };
 
     // Get target.
-    Vertex* getInitialState();
+    State<string>* getInitialState();
 
     // Get starting point.
-    Vertex* getGoalState();
+    State<string>* getGoalState();
 
     // Get all vertex
-    vector<Vertex*>* getVertexes() { return this->vertexes; }
+    vector<State<string>*>* getVertexes() { return this->vertexes; }
 
     // Returns neighbors
-    list<Vertex*>* getAllPossibleStates(Vertex* vertex) {
+    list<State<string>*>* getAllPossibleStates(State<string>* vertex) {
         return this->edges->at(vertex);
     }
 };

@@ -3,7 +3,7 @@
 //
 
 #include "graph.h"
-Vertex * Graph::getInitialState() {
+State<string> * Graph::getInitialState() {
     this->goal = rand() % this->vertexes->size();
     while (this->goal == this->target) {
         this->goal = rand() % this->vertexes->size();
@@ -11,7 +11,7 @@ Vertex * Graph::getInitialState() {
     return this->vertexes->at(this->goal);
 }
 
-Vertex * Graph::getGoalState() {
+State<string> * Graph::getGoalState() {
     this->target = rand() % this->vertexes->size();
     while (this->target == this->goal) {
         this->target = rand() % this->vertexes->size();

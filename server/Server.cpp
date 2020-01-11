@@ -14,6 +14,9 @@ void server_side::Server::read(int client_socket, ClientHandler
         InputStream->str("");
         OutputStream ->str("");
         int valread = ::read(client_socket, buffer, 1024);
+        if (valread == 0) {
+            break;
+        }
         *InputStream << buffer;
         clientHandler->handleClient(InputStream, OutputStream);
         const char* answer = OutputStream->str().c_str();
@@ -21,6 +24,8 @@ void server_side::Server::read(int client_socket, ClientHandler
     }
     if (InputStream->str() == "end") {
         close(client_socket);
+    } else if (this->run_server) {
+        close(this->server_socket);
     }
 }
 

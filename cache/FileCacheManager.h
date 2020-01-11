@@ -46,7 +46,7 @@ public:
         //this->writeToFile(key, obj);
         stringstream filename;
         // saving the object
-        filename << key << ".bin";
+        filename << key;
         std::ofstream outFile(filename.str(), ios::out | ios::binary);
         outFile.write((char*)&obj, sizeof(obj));
         outFile.close();
@@ -68,7 +68,7 @@ public:
         T newObj;
         if (this->cacheElements.find(key) == this->cacheElements.end()) {
             stringstream filename;
-            filename << key << ".bin";
+            filename << key;
             string* file = new string(filename.str());
             string* state = new string("r");
             FILE* tryOpen;

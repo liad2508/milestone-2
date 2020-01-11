@@ -26,9 +26,9 @@ public:
     static void main(string args[]) {
 
         int port = stoi(args[0]);
-        Solver<string,string>* solver = new StringReverser();
-        CacheManager<Solution<const char*>>* cacheManager = new
-                FileCacheManager<Solution<const char*>>(100);
+        Solver<string,string>* solver = new StringReverser("string_reverser");
+        CacheManager<string>* cacheManager = new
+                FileCacheManager<string>(100);
         Server* mySerialServer = new MySerialServer();
         ClientHandler* clientHandler = new MyTestClientHandler(solver,
                 cacheManager);

@@ -11,14 +11,12 @@ void MyTestClientHandler::handleClient(ostringstream* InputStream,
     problem << InputStream->str();
     in << sol->getSolutionType() << "_" << problem.str();
     try {
-        Solution<const char*> s = this->cacheManager->get(in.str());
-        const char* t = s.getSolution();
-        cout << t << endl;
-        *OutputStream << t;
+        string s = this->cacheManager->get(in.str());
+        cout << s << endl;
+        *OutputStream << s;
     } catch (const char* e){
         *OutputStream << this->sol->solve(problem.str());
-        Solution<const char*> out = Solution<const char*>(OutputStream->str()
-                                                                  .c_str());
-        this->cacheManager->insert(in.str(), (out));
+        string out = string(OutputStream->str().c_str());
+        this->cacheManager->insert(in.str(), out);
     }
 }
