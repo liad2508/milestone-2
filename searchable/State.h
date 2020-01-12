@@ -18,7 +18,7 @@ private:
     State<T>* cameFrom;
     double route_weight = 0;
 public:
-    State(T* st, double c) {
+    State(T st, double c) {
         this->state = st;
         this->cost = c;
     };

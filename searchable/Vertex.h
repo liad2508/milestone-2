@@ -10,11 +10,11 @@
 #include <cstring>
 #include "State.h"
 
-class Vertex: public State<string> {
-private:
+class Vertex: public State<string*> {
 public:
-    int equals(State<string>* target) {
-        return strcmp(this->getState().c_str(),target->getState().c_str());
+    Vertex(string* st, double c):State(st,c){}
+    int equals(State<string*>* target) {
+        return strcmp(this->getState()->c_str(),target->getState()->c_str());
     }
 };
 

@@ -4,15 +4,8 @@
 
 #include "A_Star.h"
 
-Route* A_Star::solve(Graph *graph) {
-    State<string>* start = graph->getInitialState();
-    State<string>* goal = graph->getInitialState();
-    goal->setState("target");
-    Initiate_A_Start(graph, start, goal);
-}
-template <class func>
 void A_Star::Initiate_A_Start(Graph *graph, State<string> *start,
-        State<string> *target, func h) {
+        State<string> *target) {
     // A set of the vertexes
     set<State<string>*>* vertexesSet = new set<State<string>*>();
     vertexesSet->insert(start);

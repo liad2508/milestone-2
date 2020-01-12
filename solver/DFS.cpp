@@ -35,12 +35,12 @@ void DFS::DFS_Visit(Graph* graph, State<string> *start, State<string> *target) {
 
         // We already visited the vertex so we check if there is a better route
         if((*neig)->getState() == "visited") {
-            changeRouteWeight(*neig, start);
+            changeRouteWeight(graph, *neig, start);
         }
 
         // We reached the target - we check whether there was a better route
         else if ((*neig)->equals(target) == 0) {
-            changeRouteWeight(*neig, start);
+            changeRouteWeight(graph, *neig, start);
         }
 
         // We didn't visit the vertex
@@ -51,8 +51,8 @@ void DFS::DFS_Visit(Graph* graph, State<string> *start, State<string> *target) {
     }
 }
 
-void DFS::changeRouteWeight(State<string>* v, State<string>* u) {
-    double possible_weight = v->getCost() + u->getRouteWeight();
+void DFS::changeRouteWeight(Graph* graph, State<string>* v, State<string>* u) {
+    double possible_weight = graph->getEdgeWeight(v,u) + u->getRouteWeight();
     if (v->getRouteWeight() > possible_weight) {
         v->setRouteWeight(possible_weight);
         v->setCameFrom(u);

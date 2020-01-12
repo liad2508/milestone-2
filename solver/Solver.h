@@ -14,7 +14,7 @@ protected:
     string solution_type;
 public:
     Solver(string sol_type) {this->solution_type = sol_type;}
-    virtual Solution solve(Problem problem)=0;
+    virtual Solution solve(Problem problem) = 0;
     string getSolutionType() { return solution_type; }
 };
 
