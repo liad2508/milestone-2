@@ -11,6 +11,7 @@
 #include <list>
 #include <algorithm>
 #include <sstream>
+
 using namespace std;
 
 class LineSplitter: public Solver<string*, vector<string*>*>{

@@ -9,12 +9,13 @@
 #include <string>
 #include <cstring>
 #include "State.h"
+#include "Point.h"
 
-class Vertex: public State<string*> {
+class Vertex: public State<Point*> {
 public:
-    Vertex(string* st, double c):State(st,c){}
-    int equals(State<string*>* target) {
-        return strcmp(this->getState()->c_str(),target->getState()->c_str());
+    Vertex(Point* st, double c):State(st,c){}
+    int equals(State<Point*>* target) {
+        return (this->getState()->getX() == target->getState()->getX() && this->getState()->getY() == target->getState()->getY());
     }
 };
 

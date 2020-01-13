@@ -48,10 +48,10 @@ RM = /snap/clion/99/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/idan/Desktop/Advanced Programming/MIlestone_2"
+CMAKE_SOURCE_DIR = /home/liad/CLionProjects/MILESTONE_2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug"
+CMAKE_BINARY_DIR = /home/liad/CLionProjects/MILESTONE_2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug/CMakeFiles" "/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liad/CLionProjects/MILESTONE_2/cmake-build-debug/CMakeFiles /home/liad/CLionProjects/MILESTONE_2/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/idan/Desktop/Advanced Programming/MIlestone_2/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/liad/CLionProjects/MILESTONE_2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -258,6 +258,141 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+searchable/Point.o: searchable/Point.cpp.o
+
+.PHONY : searchable/Point.o
+
+# target to build an object file
+searchable/Point.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Point.cpp.o
+.PHONY : searchable/Point.cpp.o
+
+searchable/Point.i: searchable/Point.cpp.i
+
+.PHONY : searchable/Point.i
+
+# target to preprocess a source file
+searchable/Point.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Point.cpp.i
+.PHONY : searchable/Point.cpp.i
+
+searchable/Point.s: searchable/Point.cpp.s
+
+.PHONY : searchable/Point.s
+
+# target to generate assembly for a file
+searchable/Point.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Point.cpp.s
+.PHONY : searchable/Point.cpp.s
+
+searchable/Searchable.o: searchable/Searchable.cpp.o
+
+.PHONY : searchable/Searchable.o
+
+# target to build an object file
+searchable/Searchable.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Searchable.cpp.o
+.PHONY : searchable/Searchable.cpp.o
+
+searchable/Searchable.i: searchable/Searchable.cpp.i
+
+.PHONY : searchable/Searchable.i
+
+# target to preprocess a source file
+searchable/Searchable.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Searchable.cpp.i
+.PHONY : searchable/Searchable.cpp.i
+
+searchable/Searchable.s: searchable/Searchable.cpp.s
+
+.PHONY : searchable/Searchable.s
+
+# target to generate assembly for a file
+searchable/Searchable.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Searchable.cpp.s
+.PHONY : searchable/Searchable.cpp.s
+
+searchable/State.o: searchable/State.cpp.o
+
+.PHONY : searchable/State.o
+
+# target to build an object file
+searchable/State.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/State.cpp.o
+.PHONY : searchable/State.cpp.o
+
+searchable/State.i: searchable/State.cpp.i
+
+.PHONY : searchable/State.i
+
+# target to preprocess a source file
+searchable/State.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/State.cpp.i
+.PHONY : searchable/State.cpp.i
+
+searchable/State.s: searchable/State.cpp.s
+
+.PHONY : searchable/State.s
+
+# target to generate assembly for a file
+searchable/State.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/State.cpp.s
+.PHONY : searchable/State.cpp.s
+
+searchable/Vertex.o: searchable/Vertex.cpp.o
+
+.PHONY : searchable/Vertex.o
+
+# target to build an object file
+searchable/Vertex.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Vertex.cpp.o
+.PHONY : searchable/Vertex.cpp.o
+
+searchable/Vertex.i: searchable/Vertex.cpp.i
+
+.PHONY : searchable/Vertex.i
+
+# target to preprocess a source file
+searchable/Vertex.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Vertex.cpp.i
+.PHONY : searchable/Vertex.cpp.i
+
+searchable/Vertex.s: searchable/Vertex.cpp.s
+
+.PHONY : searchable/Vertex.s
+
+# target to generate assembly for a file
+searchable/Vertex.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/Vertex.cpp.s
+.PHONY : searchable/Vertex.cpp.s
+
+searchable/graph.o: searchable/graph.cpp.o
+
+.PHONY : searchable/graph.o
+
+# target to build an object file
+searchable/graph.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/graph.cpp.o
+.PHONY : searchable/graph.cpp.o
+
+searchable/graph.i: searchable/graph.cpp.i
+
+.PHONY : searchable/graph.i
+
+# target to preprocess a source file
+searchable/graph.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/graph.cpp.i
+.PHONY : searchable/graph.cpp.i
+
+searchable/graph.s: searchable/graph.cpp.s
+
+.PHONY : searchable/graph.s
+
+# target to generate assembly for a file
+searchable/graph.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/searchable/graph.cpp.s
+.PHONY : searchable/graph.cpp.s
+
 server/Main.o: server/Main.cpp.o
 
 .PHONY : server/Main.o
@@ -366,6 +501,141 @@ server/Server.cpp.s:
 	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/server/Server.cpp.s
 .PHONY : server/Server.cpp.s
 
+solution/Route.o: solution/Route.cpp.o
+
+.PHONY : solution/Route.o
+
+# target to build an object file
+solution/Route.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solution/Route.cpp.o
+.PHONY : solution/Route.cpp.o
+
+solution/Route.i: solution/Route.cpp.i
+
+.PHONY : solution/Route.i
+
+# target to preprocess a source file
+solution/Route.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solution/Route.cpp.i
+.PHONY : solution/Route.cpp.i
+
+solution/Route.s: solution/Route.cpp.s
+
+.PHONY : solution/Route.s
+
+# target to generate assembly for a file
+solution/Route.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solution/Route.cpp.s
+.PHONY : solution/Route.cpp.s
+
+solver/A_Star.o: solver/A_Star.cpp.o
+
+.PHONY : solver/A_Star.o
+
+# target to build an object file
+solver/A_Star.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/A_Star.cpp.o
+.PHONY : solver/A_Star.cpp.o
+
+solver/A_Star.i: solver/A_Star.cpp.i
+
+.PHONY : solver/A_Star.i
+
+# target to preprocess a source file
+solver/A_Star.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/A_Star.cpp.i
+.PHONY : solver/A_Star.cpp.i
+
+solver/A_Star.s: solver/A_Star.cpp.s
+
+.PHONY : solver/A_Star.s
+
+# target to generate assembly for a file
+solver/A_Star.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/A_Star.cpp.s
+.PHONY : solver/A_Star.cpp.s
+
+solver/BFS.o: solver/BFS.cpp.o
+
+.PHONY : solver/BFS.o
+
+# target to build an object file
+solver/BFS.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/BFS.cpp.o
+.PHONY : solver/BFS.cpp.o
+
+solver/BFS.i: solver/BFS.cpp.i
+
+.PHONY : solver/BFS.i
+
+# target to preprocess a source file
+solver/BFS.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/BFS.cpp.i
+.PHONY : solver/BFS.cpp.i
+
+solver/BFS.s: solver/BFS.cpp.s
+
+.PHONY : solver/BFS.s
+
+# target to generate assembly for a file
+solver/BFS.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/BFS.cpp.s
+.PHONY : solver/BFS.cpp.s
+
+solver/DFS.o: solver/DFS.cpp.o
+
+.PHONY : solver/DFS.o
+
+# target to build an object file
+solver/DFS.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/DFS.cpp.o
+.PHONY : solver/DFS.cpp.o
+
+solver/DFS.i: solver/DFS.cpp.i
+
+.PHONY : solver/DFS.i
+
+# target to preprocess a source file
+solver/DFS.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/DFS.cpp.i
+.PHONY : solver/DFS.cpp.i
+
+solver/DFS.s: solver/DFS.cpp.s
+
+.PHONY : solver/DFS.s
+
+# target to generate assembly for a file
+solver/DFS.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/DFS.cpp.s
+.PHONY : solver/DFS.cpp.s
+
+solver/LineSplitter.o: solver/LineSplitter.cpp.o
+
+.PHONY : solver/LineSplitter.o
+
+# target to build an object file
+solver/LineSplitter.cpp.o:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/LineSplitter.cpp.o
+.PHONY : solver/LineSplitter.cpp.o
+
+solver/LineSplitter.i: solver/LineSplitter.cpp.i
+
+.PHONY : solver/LineSplitter.i
+
+# target to preprocess a source file
+solver/LineSplitter.cpp.i:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/LineSplitter.cpp.i
+.PHONY : solver/LineSplitter.cpp.i
+
+solver/LineSplitter.s: solver/LineSplitter.cpp.s
+
+.PHONY : solver/LineSplitter.s
+
+# target to generate assembly for a file
+solver/LineSplitter.cpp.s:
+	$(MAKE) -f CMakeFiles/MILESTONE_2.dir/build.make CMakeFiles/MILESTONE_2.dir/solver/LineSplitter.cpp.s
+.PHONY : solver/LineSplitter.cpp.s
+
 solver/Solver.o: solver/Solver.cpp.o
 
 .PHONY : solver/Solver.o
@@ -444,6 +714,21 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... searchable/Point.o"
+	@echo "... searchable/Point.i"
+	@echo "... searchable/Point.s"
+	@echo "... searchable/Searchable.o"
+	@echo "... searchable/Searchable.i"
+	@echo "... searchable/Searchable.s"
+	@echo "... searchable/State.o"
+	@echo "... searchable/State.i"
+	@echo "... searchable/State.s"
+	@echo "... searchable/Vertex.o"
+	@echo "... searchable/Vertex.i"
+	@echo "... searchable/Vertex.s"
+	@echo "... searchable/graph.o"
+	@echo "... searchable/graph.i"
+	@echo "... searchable/graph.s"
 	@echo "... server/Main.o"
 	@echo "... server/Main.i"
 	@echo "... server/Main.s"
@@ -456,6 +741,21 @@ help:
 	@echo "... server/Server.o"
 	@echo "... server/Server.i"
 	@echo "... server/Server.s"
+	@echo "... solution/Route.o"
+	@echo "... solution/Route.i"
+	@echo "... solution/Route.s"
+	@echo "... solver/A_Star.o"
+	@echo "... solver/A_Star.i"
+	@echo "... solver/A_Star.s"
+	@echo "... solver/BFS.o"
+	@echo "... solver/BFS.i"
+	@echo "... solver/BFS.s"
+	@echo "... solver/DFS.o"
+	@echo "... solver/DFS.i"
+	@echo "... solver/DFS.s"
+	@echo "... solver/LineSplitter.o"
+	@echo "... solver/LineSplitter.i"
+	@echo "... solver/LineSplitter.s"
 	@echo "... solver/Solver.o"
 	@echo "... solver/Solver.i"
 	@echo "... solver/Solver.s"

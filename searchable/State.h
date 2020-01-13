@@ -13,10 +13,10 @@ using namespace std;
 template <class T>
 class State {
 private:
+    string visitOrNot;
     T state;
     double cost;
     State<T>* cameFrom;
-    double route_weight = 0;
 public:
     State(T st, double c) {
         this->state = st;
@@ -42,11 +42,11 @@ public:
     T getState() {
         return this->state;
     }
-    double getRouteWeight() {
-        return this->route_weight;
+    void setVisit (string v) {
+        this->visitOrNot = v;
     }
-    void setRouteWeight(double weight) {
-        this->route_weight = weight;
+    string getVisit () {
+        return this->visitOrNot;
     }
     virtual int equals(State<T>* target) = 0;
 };

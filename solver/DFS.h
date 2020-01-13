@@ -8,15 +8,17 @@
 
 #include "Solver.h"
 #include "../searchable/graph.h"
-#include "../searchable/Route.h"
+#include "../solution/Route.h"
 #include "../searchable/Vertex.h"
 
 class DFS: public Solver<Route*, Graph*> {
 public:
     DFS(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);
-    void DFS_Visit(Graph* graph, State<string>* start, State<string>* target);
-    void changeRouteWeight(Graph* graph, State<string>* v, State<string>* u);
+    void DFS_Visit(Graph* graph, State<Point*>* start, State<Point*>* target);
+    void changeRouteWeight(Graph* graph, State<Point*>* v, State<Point*>* u);
+
+    void InitializeVisit(Graph *graph);
 };
 
 

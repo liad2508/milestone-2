@@ -7,9 +7,9 @@
 void Graph::InitializeGraph(string matrix_file) {
     string line;
     ifstream mat_file(matrix_file.c_str());
-    bool check_num_vertexes = true;
     int num_of_ver = INFINITY;
-    int curr_ver = 0;
+    int curr_ver = 0, num_of_lines = 0;
+    vector<vector<State<Point*>*>*>* create_neig = new vector<vector<State<Point*>*>*>;
 
     // How we should split the lines
     vector<string>* dels = new vector<string>();
@@ -20,56 +20,78 @@ void Graph::InitializeGraph(string matrix_file) {
     LineSplitter* splitter = new LineSplitter("Line_Splitter", dels);
 
     if(mat_file.is_open()) {
-        while(getline(mat_file, line) && curr_ver < num_of_ver) {
-            matrix << line.substr(0, (line.size() - 2));
+        while(getline(mat_file, line)) {
+            num_of_lines++;
+        }
+        num_of_lines -= 3;
+        mat_file.close();
+    }
+
+    mat_file = ifstream(matrix_file.c_str());
+    if(mat_file.is_open()) {
+        // Initialize the vertexes in from file
+        while(getline(mat_file, line) && curr_ver <= num_of_lines) {
+            matrix << line.substr(0, (line.size() - 2)) << ",";
             vector<string*>* line_splitted = splitter->solve(&line);
-
-            // Initialize the vertexes in from file
-            if (check_num_vertexes) {
-                num_of_ver = InitializeVertexes(line_splitted);
-                check_num_vertexes = false;
+            int num_of_vers = line_splitted->size();
+            int row = 0;
+            create_neig->push_back(new vector<State<Point*>*>());
+            while (row < num_of_vers) {
+                Vertex* ver = new Vertex(new Point(curr_ver, row), stod(*line_splitted->at(row)));
+                create_neig->at(curr_ver)->push_back(ver);
+                this->vertexes->push_back(ver);
+                row++;
             }
-
-            // Initialize Edges and weights
-            list<State<string*>*>* edge = new list<State<string*>*>;
-            map<State<string*>*, double>* edge_weig =
-                    new map<State<string*>*, double>;
-            int iter_line = 0;
-
-            // Getting the edges for all weights that doesn't equal zero.
-            while(iter_line < num_of_ver) {
-                double weight = std::stod(*line_splitted->at(iter_line));
-                if (weight != 0) {
-                    edge->push_back(this->vertexes->at(iter_line));
-                    edge_weig->insert({this->vertexes->at(iter_line), weight});
-                }
-            }
-
-            // Insert to the appropriate fields.
-            this->edges->insert({this->vertexes->at(curr_ver), edge});
-            this->weights->insert({this->vertexes->at(curr_ver), edge_weig});
             curr_ver++;
         }
 
         // Get starting position
         getline(mat_file, line);
         vector<string*>* line_splitted = splitter->solve(&line);
-        int loc = stod(*(line_splitted->at(0));
+        int loc = stod(*(line_splitted->at(0)));
         this->initialState = this->vertexes->at(loc);
 
         // Get ending position
         getline(mat_file, line);
         line_splitted = splitter->solve(&line);
-        loc = stod(*(line_splitted->at(0));
+        loc = stod(*(line_splitted->at(0)));
         this->goalState = this->vertexes->at(loc);
+
+        InitializeNeighbors(create_neig);
     }
 }
 
-int Graph::InitializeVertexes(vector<string*> *vers) {
-    int num_of_vers = vers->size();
-    while (num_of_vers > 0) {
-        Vertex* ver = new Vertex(new string("vertex"), 0);
-        this->vertexes->push_back(ver);
+void Graph::InitializeNeighbors(vector<vector<State<Point *> *> *> *create_neig) {
+    int row = create_neig->at(0)->size();
+    int line = create_neig->size();
+    for(int i = 0; i < line; i++) {
+        for(int j = 0; j < row; j++) {
+            list<State<Point*>*>* neigs = new list<State<Point*>*>();
+
+            // Right
+            if (j < (row - 1)){
+                neigs->push_back(create_neig->at(i)->at(j + 1));
+            }
+            // Left
+            if (j > 0) {
+                neigs->push_back(create_neig->at(i)->at(j - 1));
+            }
+
+            // Down
+            if (i < (line - 1)){
+                neigs->push_back(create_neig->at(i)->at(i + 1));
+            }
+            // Up
+            if (i > 0) {
+                neigs->push_back(create_neig->at(i)->at(i - 1));
+            }
+        }
     }
-    return num_of_vers;
+}
+
+void Graph::InitializeVisit() {
+    auto end = this->getVertexes()->end();
+    for(auto ver = this->getVertexes()->begin(); ver != end; ver++) {
+        (*ver)->setVisit("Unvisited");
+    }
 }
