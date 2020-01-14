@@ -7,11 +7,22 @@
 
 #include "Server.h"
 #include <vector>
-class MyParallelServer: public server_side::Server {
+template <class Problem, class Solution>
+class MyParallelServer: public server_side::Server<Problem, Solution> {
 private:
     vector<thread> servers;
 public:
-    void Parallel(ClientHandler *clientHandler);
+    void Parallel(ClientHandler<Problem, Solution> *clientHandler) {
+        for (int waiting_for_all = this->num_of_clients; waiting_for_all > 0;
+             waiting_for_all--) {
+            this->servers.push_back(thread(&server_side::Server<Problem,
+                    Solution>::listening, this, clientHandler));
+        }
+        auto last_server = this->servers.end();
+        for(auto server = this->servers.begin(); server != last_server; server++) {
+            server->join();
+        }
+    }
 };
 
 

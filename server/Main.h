@@ -13,6 +13,10 @@
 #include "../clientHandler/MyTestClientHandler.h"
 #include "Server.h"
 #include "../solution/Solution.h"
+#include "../solution/Route.h"
+
+#include "../clientHandler/MyClientHandler.h"
+#include "../solver/BFS.h"
 
 using namespace server_side;
 
@@ -26,14 +30,12 @@ public:
     static void main(string args[]) {
 
         int port = stoi(args[0]);
-        Solver<string,string>* solver = new StringReverser("string_reverser");
-        CacheManager<string>* cacheManager = new
-                FileCacheManager<string>(100);
-        Server* mySerialServer = new MySerialServer();
-        ClientHandler* clientHandler = new MyTestClientHandler(solver,
-                cacheManager);
-        mySerialServer->open(port, clientHandler, 1);
-        thread t(&Server::listening,mySerialServer,clientHandler);
+        Server<Graph*, Route*>* mySerialServer = new MySerialServer<Graph*, Route*>();
+        Solver<Graph*, Route*>* sol = new BFS("BFS_solver");
+        CacheManager<Route*>* cache = new FileCacheManager<Route*>();
+        ClientHandler<Graph*, Route*>* clientHandler = new MyClientHandler
+                (sol, cache);
+        thread t(&Server<Graph*, Route*>::listening,mySerialServer,clientHandler);
         t.join();
     }
 };

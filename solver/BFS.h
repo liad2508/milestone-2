@@ -11,11 +11,12 @@
 #include "../searchable/graph.h"
 #include "../solution/Route.h"
 
-class BFS: public Solver<Route*, Graph*> {
+class BFS: public Solver<Graph*, Route*> {
 public:
     BFS(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);
-    void BFS_Visit(Graph* graph, State<Point*>* start, State<Point*>* target);
+    void BFS_Visit(Graph* graph, State<myPoint*>* start, State<myPoint*>*
+            target);
 
 };
 

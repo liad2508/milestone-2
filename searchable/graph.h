@@ -24,36 +24,28 @@
 #include <inttypes.h>
 using namespace std;
 
-class Graph:public Searchable<Point*> {
+class Graph : public Searchable<State<myPoint*>*> {
 private:
-    vector<State<Point*>*>* vertexes;
-    map<State<Point*>*,list<State<Point*>*>*>* neighbors;
+    vector<State<myPoint*>*>* vertexes;
+    map<State<myPoint*>*,list<State<myPoint*>*>*>* neighbors;
     stringstream matrix;
-    State<Point*>* initialState;
-    State<Point*>* goalState;
+
 public:
     Graph() {
-        this->vertexes = new vector<State<Point*>*>();
-        this->neighbors = new map<State<Point*>*,list<State<Point*>*>*>;
-        this->goal = -1;
-        this->target = -1;
+        this->vertexes = new vector<State<myPoint*>*>();
+        this->neighbors = new map<State<myPoint*>*,list<State<myPoint*>*>*>;
+
     };
 
-    // Get target.
-    State<Point*>* getInitialState() {return this->initialState;}
-
-    // Get starting point.
-    State<Point*>* getGoalState() {return this->goalState;}
-
     // Get all vertex
-    vector<State<Point*>*>* getVertexes() { return this->vertexes; }
+    vector<State<myPoint*>*>* getVertexes() { return this->vertexes; }
 
     // Initialize graph
     void InitializeGraph(string matrix_file);
 
-    void InitializeNeighbors(vector<vector<State<Point*>*>*>* create_neig);
+    void InitializeNeighbors(vector<vector<State<myPoint*>*>*>* create_neig);
     // Returns neighbors
-    list<State<Point*>*>* getAllPossibleStates(State<Point*>* vertex) {
+    list<State<myPoint*>*>* getAllPossibleStates(State<myPoint*>* vertex) {
         return this->neighbors->at(vertex);
     }
 

@@ -9,16 +9,16 @@ Route* BFS::solve(Graph *graph) {
     //need initialize all the distance to infinity
 
 // Get random starting point
-    State<Point*> *startingVertex = graph->getInitialState();
+    State<myPoint*> *startingVertex = graph->getInitialState();
 
 // Get random ending point
-    State<Point*> *endingVertex = graph->getGoalState();
+    State<myPoint*> *endingVertex = graph->getGoalState();
     graph->InitializeVisit();
     BFS_Visit(graph, startingVertex, endingVertex);
     Route* final_route = new Route();
 
     // Find the route.
-    State<Point*>* vertex_in_route = endingVertex;
+    State<myPoint*>* vertex_in_route = endingVertex;
 
     while(!vertex_in_route->equals(startingVertex)) {
         final_route->addToRoute(vertex_in_route);
@@ -29,18 +29,20 @@ Route* BFS::solve(Graph *graph) {
 
 }
 
-void BFS::BFS_Visit(Graph *graph, State<Point *> *start, State<Point *> *target) {
+void BFS::BFS_Visit(Graph *graph, State<myPoint *> *start, State<myPoint *>
+        *target) {
 
-    list<State<Point*>*> queue;
+    list<State<myPoint*>*> queue;
     start->setVisit("visited");
     queue.push_back(start);
     while (!queue.empty()) {
 
-        _List_iterator<State<Point *> *> iter = queue.begin();
-        State<Point*>* firstVertex = *iter;
+        _List_iterator<State<myPoint *> *> iter = queue.begin();
+        State<myPoint*>* firstVertex = *iter;
         queue.pop_front();
 
-        list<State<Point*>*>* neighbors = graph->getAllPossibleStates(firstVertex);
+        list<State<myPoint*>*>* neighbors = graph->getAllPossibleStates
+                (firstVertex);
         auto last_neig = neighbors->end();
         for(auto neig = neighbors->begin(); neig != last_neig; neig++) {
 

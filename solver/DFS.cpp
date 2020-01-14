@@ -5,17 +5,17 @@
 #include "DFS.h"
 
 Route* DFS::solve(Graph* graph) {
-    // Get random starting point
-    State<Point*>* startingVertex = graph->getInitialState();
+    // Get random starting mypoint
+    State<myPoint*>* startingVertex = graph->getInitialState();
 
-    // Get random ending point
-    State<Point*>* endingVertex = graph->getGoalState();
+    // Get random ending mypoint
+    State<myPoint*>* endingVertex = graph->getGoalState();
     Route* final_route = new Route();
     graph->InitializeVisit();
     DFS_Visit(graph, startingVertex, endingVertex);
 
     // Find the route.
-    State<Point*>* vertex_in_route = endingVertex;
+    State<myPoint*>* vertex_in_route = endingVertex;
 
     while(!vertex_in_route->equals(startingVertex)) {
         final_route->addToRoute(vertex_in_route);
@@ -25,8 +25,9 @@ Route* DFS::solve(Graph* graph) {
     return final_route;
 }
 
-void DFS::DFS_Visit(Graph* graph, State<Point*> *start, State<Point*> *target) {
-    list<State<Point*>*>* neighbors = graph->getAllPossibleStates(start);
+void DFS::DFS_Visit(Graph* graph, State<myPoint*> *start, State<myPoint*>
+        *target) {
+    list<State<myPoint*>*>* neighbors = graph->getAllPossibleStates(start);
     auto last_neig = neighbors->end();
     for(auto neig = neighbors->begin(); neig != last_neig; neig++) {
 

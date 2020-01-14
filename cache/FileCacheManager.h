@@ -17,9 +17,9 @@
 #include <fstream>
 #include <algorithm>
 #include "CacheManager.h"
+#include "../solution/Solution.h"
 
 using namespace std;
-
 template <class T>
 class FileCacheManager: public CacheManager<T> {
 private:
@@ -47,7 +47,7 @@ public:
         stringstream filename;
         // saving the object
         filename << key;
-        std::ofstream outFile(filename.str(), ios::out | ios::binary);
+        std::ofstream outFile(filename.str());
         outFile.write((char*)&obj, sizeof(obj));
         outFile.close();
         pair<string, T> newObj = pair<string, T> (key, obj);

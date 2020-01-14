@@ -11,12 +11,13 @@
 #include "State.h"
 #include "Point.h"
 
-class Vertex: public State<Point*> {
+class Vertex: public State<myPoint*> {
 public:
-    Vertex(Point* st, double c):State(st,c){}
-    int equals(State<Point*>* target) {
+    Vertex(myPoint* st, double c):State(st,c){}
+    int equals(State<myPoint*>* target) {
         return (this->getState()->getX() == target->getState()->getX() && this->getState()->getY() == target->getState()->getY());
     }
+    string toString();
 };
 
 

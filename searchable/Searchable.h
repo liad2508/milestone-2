@@ -16,12 +16,12 @@
 template <class T>
 class Searchable {
 protected:
-    int target;
-    int goal;
+    T initialState;
+    T goalState;
 public:
-    virtual State<T>* getInitialState();
-    virtual State<T>* getGoalState();
-    virtual list<State<T>*>* getAllPossibleStates(State<T>* s);
+    T getInitialState() { return this->initialState; }
+    T getGoalState() {return this->goalState;}
+    virtual list<T>* getAllPossibleStates(T s) = 0;
 };
 
 

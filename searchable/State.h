@@ -18,6 +18,7 @@ private:
     double cost;
     State<T>* cameFrom;
 public:
+    virtual string toString() = 0;
     State(T st, double c) {
         this->state = st;
         this->cost = c;

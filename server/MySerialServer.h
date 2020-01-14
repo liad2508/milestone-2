@@ -7,8 +7,8 @@
 
 #include "Server.h"
 #define NUM_OF_CLIENTS 1
-
-class MySerialServer: public server_side::Server {
+template <class Problem, class Solution>
+class MySerialServer: public server_side::Server<Problem, Solution> {
 public:
 
 };

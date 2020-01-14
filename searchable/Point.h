@@ -5,16 +5,19 @@
 #ifndef MILESTONE_2_POINT_H
 #define MILESTONE_2_POINT_H
 
+#include <iostream>
+#include <sstream>
+
 using namespace std;
 
-class Point {
+class myPoint {
 
 private:
     int x;
     int y;
 
 public:
-    Point(int i, int j) {
+    myPoint(int i, int j) {
         this->x = i;
         this->y = j;
     }
@@ -34,7 +37,8 @@ public:
     void setY(int y) {
        this->y = y;
     }
-
+    string toStr();
+    myPoint* operator-(myPoint* p);
 };
 
 

@@ -11,5 +11,11 @@ add_executable(MILESTONE_2 "main.cpp" "server/Server.cpp" "server/Server.h" "ser
         "cache/CacheManager.h" "cache/FileCacheManager.cpp" "cache/FileCacheManager.h"
         "server/MyParallelServer.cpp" "server/MyParallelServer.h"
         solver/StringReverser.cpp solver/StringReverser.h server/Main.cpp
-        server/Main.h searchable/State.cpp searchable/State.h solver/DFS.cpp solver/DFS.h searchable/graph.cpp searchable/graph.h  searchable/Searchable.cpp searchable/Searchable.h solution/Route.cpp solution/Route.h searchable/Vertex.cpp searchable/Vertex.h solver/A_Star.cpp solver/A_Star.h solver/LineSplitter.cpp solver/LineSplitter.h solver/BFS.cpp solver/BFS.h searchable/Point.cpp searchable/Point.h)
+        server/Main.h searchable/State.cpp searchable/State.h solver/DFS.cpp
+        solver/DFS.h searchable/graph.cpp searchable/graph.h
+        searchable/Searchable.cpp  searchable/Searchable.h searchable/Vertex.cpp
+        searchable/Vertex.h solver/A_Star.cpp solver/A_Star.h solver/LineSplitter.cpp
+        solver/LineSplitter.h searchable/Point.h  searchable/Point.cpp
+        solution/Route.h solution/Route.cpp clientHandler/MyClientHandler.cpp clientHandler/MyClientHandler.h
+        solver/BFS.h solver/BFS.cpp)
 target_link_libraries(${PROJECT_NAME} pthread)

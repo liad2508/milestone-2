@@ -15,8 +15,9 @@ class DFS: public Solver<Route*, Graph*> {
 public:
     DFS(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);
-    void DFS_Visit(Graph* graph, State<Point*>* start, State<Point*>* target);
-    void changeRouteWeight(Graph* graph, State<Point*>* v, State<Point*>* u);
+    void DFS_Visit(Graph* graph, State<myPoint*>* start, State<myPoint*>* target);
+    void changeRouteWeight(Graph* graph, State<myPoint*>* v, State<myPoint*>*
+            u);
 
     void InitializeVisit(Graph *graph);
 };

@@ -5,29 +5,34 @@
 #ifndef MILESTONE_2_ROUTE1_H
 #define MILESTONE_2_ROUTE1_H
 #include <iostream>
-#include <string>
 #include <vector>
+#include <string>
 #include <list>
 #include <stdlib.h>
 #include <map>
-#include "../searchable/State.h"
+#include "../solver/LineSplitter.h"
 #include "../searchable/Point.h"
-#include "Solution.h"
-
+#include "../searchable/State.h"
+#include "../searchable/Vertex.h"
+#include "../solution/Solution.h"
+#include <fstream>
+#include <sstream>
+#include <math.h>
+#include <stdint.h>
+#include <inttypes.h>
 using namespace std;
-class Route {
+
+class Route: public Solution <State<myPoint*>*>{
 private:
-    list<State<Point*>*>* route;
+    list<State<myPoint*>*>* route;
 public:
-    Route() {
-        this->route = new list<State<Point*>*>;
-    }
-    list<State<Point*>*>* getRoute() {
-        return this->route;
-    }
-    void addToRoute(State<Point*>* ver) {
+    Route() :Solution(){}
+    void addToRoute(State<myPoint*>* ver) {
         this->route->push_front(ver);
     }
+    string toString();
+    void toFile(ofstream* file);
+    void fromFile(ifstream* file);
 };
 
 #endif //MILESTONE_2_ROUTE1_H

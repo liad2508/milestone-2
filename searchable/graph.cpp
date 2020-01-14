@@ -7,9 +7,10 @@
 void Graph::InitializeGraph(string matrix_file) {
     string line;
     ifstream mat_file(matrix_file.c_str());
-    int num_of_ver = INFINITY;
+    int num_of_ver = (int)INFINITY;
     int curr_ver = 0, num_of_lines = 0;
-    vector<vector<State<Point*>*>*>* create_neig = new vector<vector<State<Point*>*>*>;
+    vector<vector<State<myPoint*>*>*>* create_neig = new
+            vector<vector<State<myPoint*>*>*>;
 
     // How we should split the lines
     vector<string>* dels = new vector<string>();
@@ -35,9 +36,10 @@ void Graph::InitializeGraph(string matrix_file) {
             vector<string*>* line_splitted = splitter->solve(&line);
             int num_of_vers = line_splitted->size();
             int row = 0;
-            create_neig->push_back(new vector<State<Point*>*>());
+            create_neig->push_back(new vector<State<myPoint*>*>());
             while (row < num_of_vers) {
-                Vertex* ver = new Vertex(new Point(curr_ver, row), stod(*line_splitted->at(row)));
+                Vertex* ver = new Vertex(new myPoint(curr_ver, row), stod
+                (*line_splitted->at(row)));
                 create_neig->at(curr_ver)->push_back(ver);
                 this->vertexes->push_back(ver);
                 row++;
@@ -61,12 +63,13 @@ void Graph::InitializeGraph(string matrix_file) {
     }
 }
 
-void Graph::InitializeNeighbors(vector<vector<State<Point *> *> *> *create_neig) {
+void Graph::InitializeNeighbors(vector<vector<State<myPoint *> *> *>
+        *create_neig) {
     int row = create_neig->at(0)->size();
     int line = create_neig->size();
     for(int i = 0; i < line; i++) {
         for(int j = 0; j < row; j++) {
-            list<State<Point*>*>* neigs = new list<State<Point*>*>();
+            list<State<myPoint*>*>* neigs = new list<State<myPoint*>*>();
 
             // Right
             if (j < (row - 1)){

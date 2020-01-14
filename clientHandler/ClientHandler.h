@@ -7,14 +7,25 @@
 #include <iostream>
 
 #include "../solver/Solver.h"
+#include "../cache/CacheManager.h"
 using namespace std;
-class ClientHandler {
 
-public:
-    virtual void handleClient (ostringstream* InputStream, ostringstream*
-    OutputStream) = 0;
+template <class Problem, class Solution>
+        class ClientHandler {
+        protected:
+            Solver<Problem, Solution> *sol;
+            CacheManager <Solution> *cacheManager;
+        public:
+            ClientHandler (Solver<Problem, Solution>* so,
+            CacheManager<Solution>* cache) {
+                this->sol = so;
+                this->cacheManager = cache;
+            }
+            virtual void
+            handleClient(ostringstream *InputStream, ostringstream *
+            OutputStream) = 0;
 
-};
+        };
 
 
 #endif //MILESTONE_2_CLIENTHANDLER_H

@@ -12,15 +12,13 @@
 #include "../cache/CacheManager.h"
 #include "../solution/Solution.h"
 
-class MyTestClientHandler: public ClientHandler {
+class MyTestClientHandler: public ClientHandler<string,string> {
     Solver<string, string> *sol;
     CacheManager<string>* cacheManager;
 public:
     MyTestClientHandler (Solver<string, string>* so,
-            CacheManager<string>* cache) {
-        this->sol = so;
-        this->cacheManager = cache;
-    }
+            CacheManager<string>* cache) : ClientHandler(so,cache){}
+
     void handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
 };

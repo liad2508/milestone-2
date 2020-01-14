@@ -25,22 +25,25 @@ public:
         this->h = met;
     }
     Route* solve(Graph* graph) {
-        State<Point*>* start = graph->getInitialState();
-        State<Point*>* goal = graph->getInitialState();
+        State<myPoint*>* start = graph->getInitialState();
+        State<myPoint*>* goal = graph->getInitialState();
         Initiate_A_Star(graph, start, goal);
     }
-    void Initiate_A_Star(Graph* graph, State<Point*>* start, State<Point*>*
+    void Initiate_A_Star(Graph* graph, State<myPoint*>* start, State<myPoint*>*
             target) {
         // A set of the vertexes
-        set<State<Point*>*>* vertexesSet = new set<State<Point*>*>();
+        set<State<myPoint*>*>* vertexesSet = new set<State<myPoint*>*>();
         vertexesSet->insert(start);
 
-        //For node n, cheapScore[n] is the cost of the cheapest path from start to n currently known
-        map<State<Point*>*, double>* cheapScore = new map<State<Point*>*, double>();
+        // For node n, cheapScore[n] is the cost of the cheapest path from
+        // start to n currently known
+        map<State<myPoint*>*, double>* cheapScore = new map<State<myPoint*>*,
+                double>();
 
         // For node n, finalScore[n] := cheapScore[n] + h(n).
-        map<State<Point*>*, double>* finalScore = new map<State<Point*>*, double>();
-        vector<State<Point*>*>* vers = graph->getVertexes();
+        map<State<myPoint*>*, double>* finalScore = new map<State<myPoint*>*,
+                double>();
+        vector<State<myPoint*>*>* vers = graph->getVertexes();
 
         // Initialize values to infinity
         Initialize_Map(vers, cheapScore);
@@ -53,7 +56,7 @@ public:
         while (vertexesSet->size() > 0) {
 
             // Getting the vertex with lowest value in finalScore
-            State<Point*>* lowestVer = Get_Min_Vertex(finalScore);
+            State<myPoint*>* lowestVer = Get_Min_Vertex(finalScore);
             if (lowestVer->equals(target)) {
                 return;
             }
@@ -62,7 +65,7 @@ public:
             vertexesSet->erase(lowestVer);
 
             // Iterate neighbors
-            list<State<Point*>*>* neighbors =
+            list<State<myPoint*>*>* neighbors =
                     graph->getAllPossibleStates(lowestVer);
             auto last_neig = neighbors->end();
             for(auto neig = neighbors->begin(); neig != last_neig; neig++) {
@@ -84,7 +87,7 @@ public:
         // We can't reach the target - there is no route to it.
         throw "Was unable to find route with A*";
     }
-    void Initialize_Map(vector<State<Point*>*>* vertexes, map<State<Point*>*,
+    void Initialize_Map(vector<State<myPoint*>*>* vertexes, map<State<myPoint*>*,
             double>* the_map) {
         auto last_ver = vertexes->end();
         double f = INFINITY;
@@ -92,9 +95,9 @@ public:
             the_map->insert({(*ver), f});
         }
     }
-    State<Point*>* Get_Min_Vertex(map<State<Point*>*,double>* the_map) {
+    State<myPoint*>* Get_Min_Vertex(map<State<myPoint*>*,double>* the_map) {
         double min = INFINITY;
-        State<Point*>* min_ver = nullptr;
+        State<myPoint*>* min_ver = nullptr;
         auto last_ver = the_map->end();
         for (auto ver = the_map->begin(); ver != last_ver; ver++) {
             double val = (*ver).second;
