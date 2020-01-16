@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <map>
 #include "../solver/LineSplitter.h"
-#include "../searchable/Point.h"
+#include "../searchable/myPoint.h"
 #include "../searchable/State.h"
 #include "../searchable/Vertex.h"
 #include "../solution/Solution.h"
@@ -26,7 +26,7 @@ class Route: public Solution <list<State<myPoint*>*>*>{
 private:
     list<State<myPoint*>*>* route;
 public:
-    Route() :Solution(){}
+    Route() :Solution(){this->route = new list<State<myPoint*>*>;}
     void addToRoute(State<myPoint*>* ver) {
         this->route->push_front(ver);
     }

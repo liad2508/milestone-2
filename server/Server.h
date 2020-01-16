@@ -65,10 +65,10 @@ public:
 
 
     void read(int client_socket, ClientHandler<Problem, Solution> *clientHandler) {
-        char buffer[1024] = {0};
         ostringstream* InputStream = new ostringstream();
         ostringstream* OutputStream = new ostringstream();
         while(InputStream->str() != "end" && this->run_server) {
+            char buffer[1024] = {0};
             InputStream->str("");
             OutputStream ->str("");
             int valread = ::read(client_socket, buffer, 1024);

@@ -8,16 +8,31 @@ vector<string*>* LineSplitter::solve(string* problem) {
     vector<string*>* splitted = new vector<string*>;
     auto end_problem = problem->end();
     stringstream final;
+    stringstream curr_c;
+    bool deldel = false;
+    auto delEnd = this->delimeter->end();
 
     for(auto c = problem->begin(); c != end_problem; c++) {
-//
-//        if (std::find(this->delimeter->begin(), this->delimeter->end(), *c) ==
-//         this->delimeter->end()) {
-//            final << *c;
-//        } else {
-//            splitted->push_back(new string(final.str()));
-//            final.str("");
-//        }
+        curr_c.str("");
+        curr_c << *c;
+        string s = curr_c.str();
+        for (auto del = this->delimeter->begin(); del != delEnd; del++) {
+            if (*del == s) {
+                deldel = true;
+                break;
+            }
+        }
+        if (!deldel) {
+            final << *c;
+        } else {
+            splitted->push_back(new string(final.str()));
+            final.str("");
+            deldel = false;
+        }
+    }
+
+    if (!deldel){
+        splitted->push_back(new string(final.str()));
     }
     return splitted;
 }

@@ -49,12 +49,13 @@ void BFS::BFS_Visit(Graph *graph, State<myPoint *> *start, State<myPoint *>
             if ((*neig)->getVisit() != string("visited")) {
                 (*neig)->setVisit("visited");
                 (*neig)->setCameFrom(firstVertex);
-                queue.pop_front();
+                queue.push_back(*neig);
             }
             // We reached the target 
             if ((*neig)->equals(target)) {
                 break;
             }
+            this->num++;
         }
     }
 

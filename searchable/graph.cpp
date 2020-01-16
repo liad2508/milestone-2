@@ -31,33 +31,44 @@ void Graph::InitializeGraph(string matrix_file) {
     mat_file = ifstream(matrix_file.c_str());
     if(mat_file.is_open()) {
         // Initialize the vertexes in from file
-        while(getline(mat_file, line) && curr_ver <= num_of_lines) {
+        while(getline(mat_file, line) && curr_ver <= (num_of_lines - 1)) {
             matrix << line.substr(0, (line.size() - 2)) << ",";
+            line.erase(remove_if(line.begin(), line.end(), ::isspace), line.end());
             vector<string*>* line_splitted = splitter->solve(&line);
-            int num_of_vers = line_splitted->size();
-            int row = 0;
+            num_of_ver = line_splitted->size();
+            int col = 0;
             create_neig->push_back(new vector<State<myPoint*>*>());
-            while (row < num_of_vers) {
-                Vertex* ver = new Vertex(new myPoint(curr_ver, row), stod
-                (*line_splitted->at(row)));
+
+            while (col < num_of_ver) {
+                double val = stod(*line_splitted->at(col));
+                Vertex* ver;
+
+                // If val equals -1 it is equivalent to infinity
+                if (val == -1) {
+                    ver = new Vertex(new myPoint(curr_ver, col), INFINITY);
+                } else {
+                    ver = new Vertex(new myPoint(curr_ver, col), val);
+                }
+
                 create_neig->at(curr_ver)->push_back(ver);
                 this->vertexes->push_back(ver);
-                row++;
+                col++;
             }
             curr_ver++;
         }
 
         // Get starting position
-        getline(mat_file, line);
         vector<string*>* line_splitted = splitter->solve(&line);
-        int loc = stod(*(line_splitted->at(0)));
-        this->initialState = this->vertexes->at(loc);
+        int n = stod(*(line_splitted->at(0)));
+        int m = stod(*(line_splitted->at(1)));
+        this->initialState = getVer(n, m);
 
         // Get ending position
         getline(mat_file, line);
         line_splitted = splitter->solve(&line);
-        loc = stod(*(line_splitted->at(0)));
-        this->goalState = this->vertexes->at(loc);
+        n = stod(*(line_splitted->at(0)));
+        m = stod(*(line_splitted->at(1)));
+        this->goalState = getVer(n, m);
 
         InitializeNeighbors(create_neig);
     }
@@ -65,14 +76,16 @@ void Graph::InitializeGraph(string matrix_file) {
 
 void Graph::InitializeNeighbors(vector<vector<State<myPoint *> *> *>
         *create_neig) {
-    int row = create_neig->at(0)->size();
+    int col = create_neig->at(0)->size();
     int line = create_neig->size();
+    int vers = 0;
+    list<State<myPoint*>*>* neigs;
     for(int i = 0; i < line; i++) {
-        for(int j = 0; j < row; j++) {
-            list<State<myPoint*>*>* neigs = new list<State<myPoint*>*>();
+        for(int j = 0; j < col; j++) {
+            neigs = new list<State<myPoint*>*>();
 
             // Right
-            if (j < (row - 1)){
+            if (j < (col - 1)){
                 neigs->push_back(create_neig->at(i)->at(j + 1));
             }
             // Left
@@ -88,6 +101,8 @@ void Graph::InitializeNeighbors(vector<vector<State<myPoint *> *> *>
             if (i > 0) {
                 neigs->push_back(create_neig->at(i)->at(i - 1));
             }
+            this->neighbors->insert({this->vertexes->at(vers), neigs});
+            vers++;
         }
     }
 }
@@ -96,5 +111,15 @@ void Graph::InitializeVisit() {
     auto end = this->getVertexes()->end();
     for(auto ver = this->getVertexes()->begin(); ver != end; ver++) {
         (*ver)->setVisit("Unvisited");
+    }
+}
+
+State<myPoint *> * Graph::getVer(int n, int m) {
+    myPoint* p = new myPoint(n, m);
+    auto end = this->vertexes->end();
+    for(auto start = this->vertexes->begin(); start != end; start++) {
+        if(p->equals((*start)->getState())) {
+            return *start;
+        }
     }
 }

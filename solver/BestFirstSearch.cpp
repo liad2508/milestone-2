@@ -71,6 +71,7 @@ void BestFirstSearch::BestFirstSearch_visit(Graph *graph, State<myPoint *> *star
 
                 }
             }
+            this->num++;
         }
     }
 }

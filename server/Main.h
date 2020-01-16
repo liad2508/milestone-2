@@ -28,16 +28,40 @@ class boot::Main2{
 
 public:
     static void main(string args[]) {
+            Graph* g = new Graph();
+            g->InitializeGraph("matrix_test.txt");
 
-        int port = stoi(args[0]);
-        Server<Graph*, Route*>* mySerialServer = new MySerialServer<Graph*, Route*>();
-        Solver<Graph*, Route*>* sol = new BFS("BFS_solver");
-        CacheManager<Route*>* cache = new FileCacheManager<Route*>();
-        ClientHandler<Graph*, Route*>* clientHandler = new MyClientHandler
-                (sol, cache);
-        mySerialServer->open(port, clientHandler,1);
-        thread t(&Server<Graph*, Route*>::listening,mySerialServer,clientHandler);
-        t.join();
+
+//
+//
+//            stringstream mat_file;
+//            int file_num = 0;
+//            int port = stoi(args[0]);
+//            string* file;
+//
+//            // Create server
+//            Server<Graph *, Route *> *mySerialServer = new MySerialServer<Graph *, Route *>();
+//
+//            // Searcher
+//            Solver<Graph *, Route *> *sol = new BFS("BFS_solver");
+//
+//            // Cache manager
+//            CacheManager<Route *> *cache = new FileCacheManager<Route *>();
+//
+//            // Client handler
+//            mat_file << "Matrix_Funky_" << file_num;
+//            file_num++;
+//            file = new string(mat_file.str());
+//            ClientHandler<Graph *, Route *> *clientHandler = (new MyClientHandler
+//                    (sol, cache))->setNameOfFile(file);
+//
+//            // Open server's socket
+//            mySerialServer->open(port, clientHandler, 1);
+//
+//            // Start handling
+//            thread t(&Server<Graph *, Route *>::listening, mySerialServer,
+//                     clientHandler);
+//            t.join();
     }
 };
 

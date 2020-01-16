@@ -16,7 +16,7 @@
 #include "Searchable.h"
 #include "../solver/LineSplitter.h"
 #include "Vertex.h"
-#include "Point.h"
+#include "myPoint.h"
 #include <fstream>
 #include <sstream>
 #include <math.h>
@@ -52,6 +52,8 @@ public:
     void InitializeVisit(Graph *graph);
 
     void InitializeVisit();
+
+    State<myPoint *> * getVer(int n, int m);
 };
 
 

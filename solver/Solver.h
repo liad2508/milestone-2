@@ -12,10 +12,12 @@ template <class Problem, class Solution>
 class Solver {
 protected:
     string solution_type;
+    int num = 0;
 public:
     Solver(string sol_type) {this->solution_type = sol_type;}
     virtual Solution solve(Problem problem) = 0;
     string getSolutionType() { return solution_type; }
+    int getNum() { return this->num;}
 };
 
 

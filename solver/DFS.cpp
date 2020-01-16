@@ -48,6 +48,7 @@ void DFS::DFS_Visit(Graph* graph, State<myPoint*> *start, State<myPoint*>
             DFS_Visit(graph, *neig, target);
             (*neig)->setVisit("visited");
         }
+        this->num++;
     }
 }
 

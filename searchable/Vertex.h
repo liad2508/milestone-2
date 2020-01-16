@@ -15,7 +15,7 @@ class Vertex: public State<myPoint*> {
 public:
     Vertex(myPoint* st, double c):State(st,c){}
     int equals(State<myPoint*>* target) {
-        return (this->getState()->getX() == target->getState()->getX() && this->getState()->getY() == target->getState()->getY());
+        return this->getState()->equals(target->getState());
     }
     bool operator()(State<myPoint *> *state1, State<myPoint *> *state2) {
 

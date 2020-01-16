@@ -15,7 +15,7 @@ add_executable(MILESTONE_2 "main.cpp" "server/Server.cpp" "server/Server.h" "ser
         solver/DFS.h searchable/graph.cpp searchable/graph.h
         searchable/Searchable.cpp  searchable/Searchable.h searchable/Vertex.cpp
         searchable/Vertex.h solver/A_Star.cpp solver/A_Star.h solver/LineSplitter.cpp
-        solver/LineSplitter.h searchable/Point.h  searchable/Point.cpp
+        solver/LineSplitter.h searchable/myPoint.h searchable/myPoint.cpp
         solution/Route.h solution/Route.cpp clientHandler/MyClientHandler.cpp clientHandler/MyClientHandler.h
-        solver/BFS.h solver/BFS.cpp)
+        solver/BFS.h solver/BFS.cpp solver/BestFirstSearch.cpp solver/BestFirstSearch.h)
 target_link_libraries(${PROJECT_NAME} pthread)

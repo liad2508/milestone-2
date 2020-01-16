@@ -23,7 +23,7 @@ class MyClientHandler : public ClientHandler<Graph*, Route*> {
 public:
     MyClientHandler (Solver<Graph*, Route*>* so, CacheManager<Route*>* cache)
     : ClientHandler(so, cache){}
-    void setNameOfFile(string *nameOfFile);
+    MyClientHandler* setNameOfFile(string *nameOfFile);
 
     void handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
