@@ -50,6 +50,7 @@ public:
         return this->visitOrNot;
     }
     virtual int equals(State<T>* target) = 0;
+    virtual bool operator ()(State<T> *  state1,  State<T> * state2) = 0;
 };
 
 
