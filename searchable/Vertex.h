@@ -17,6 +17,9 @@ public:
     int equals(State<myPoint*>* target) {
         return (this->getState()->getX() == target->getState()->getX() && this->getState()->getY() == target->getState()->getY());
     }
+      bool operator()(State<myPoint *> *state1, State<myPoint *> *state2) {
+        return state1->getCostOfWay() < state2->getCostOfWay();
+    }
     string toString();
 };
 
