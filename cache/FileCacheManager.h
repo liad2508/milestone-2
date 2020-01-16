@@ -48,7 +48,7 @@ public:
         // saving the object
         filename << key;
         std::ofstream outFile(filename.str());
-        outFile.write((char*)&obj, sizeof(obj));
+        obj.toFile(outFile);
         outFile.close();
         pair<string, T> newObj = pair<string, T> (key, obj);
         // If we exceeded the cache's capacity limit
@@ -77,7 +77,7 @@ public:
                 fclose(tryOpen);
                 // reading
                 std::ifstream inFile(filename.str(), ios::binary | ios::in);
-                inFile.read((char*) &newObj, sizeof(newObj));
+                newObj = newObj.fromFile(inFile);
                 inFile.close();
                 if ((this->cacheElements.size() + 1) > this->cacheCapacity) {
                     this->cacheElements.erase(indexes.front());

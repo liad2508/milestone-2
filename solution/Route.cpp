@@ -3,7 +3,7 @@
 //
 
 #include "Route.h"
-void Route::fromFile(ifstream *file) {
+Route* Route::fromFile(ifstream *file) {
     int size = 0;
     // Deilimeters
     vector<string> *dels = new vector<string>();
@@ -30,6 +30,7 @@ void Route::fromFile(ifstream *file) {
         Vertex *v = new Vertex(p, cost);
         this->route->push_back(v);
     }
+    return this;
 }
 
 void Route::toFile(ofstream *file) {

@@ -22,7 +22,7 @@
 #include <inttypes.h>
 using namespace std;
 
-class Route: public Solution <State<myPoint*>*>{
+class Route: public Solution <list<State<myPoint*>*>*>{
 private:
     list<State<myPoint*>*>* route;
 public:
@@ -32,7 +32,7 @@ public:
     }
     string toString();
     void toFile(ofstream* file);
-    void fromFile(ifstream* file);
+    Route* fromFile(ifstream* file);
 };
 
 #endif //MILESTONE_2_ROUTE1_H

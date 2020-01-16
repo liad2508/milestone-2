@@ -19,7 +19,7 @@ public:
     string getRepresentation() { return this->representation;}
     virtual string toString() = 0;
     virtual void toFile(ofstream* file) = 0;
-    virtual void fromFile(ifstream* file) = 0;
+    virtual Solution<sol>* fromFile(ifstream* file) = 0;
     ~Solution(){}
 };
 

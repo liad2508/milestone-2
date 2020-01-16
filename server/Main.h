@@ -35,6 +35,7 @@ public:
         CacheManager<Route*>* cache = new FileCacheManager<Route*>();
         ClientHandler<Graph*, Route*>* clientHandler = new MyClientHandler
                 (sol, cache);
+        mySerialServer->open(port, clientHandler,1);
         thread t(&Server<Graph*, Route*>::listening,mySerialServer,clientHandler);
         t.join();
     }
