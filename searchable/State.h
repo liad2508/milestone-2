@@ -15,6 +15,7 @@ class State {
 private:
     string visitOrNot;
     T state;
+    double costOfWay;
     double cost;
     State<T>* cameFrom;
 public:
@@ -28,6 +29,12 @@ public:
     }
     double getCost() {
         return this->cost;
+    }
+    void setCostOfWay(int c) {
+        this->costOfWay = c;
+    }
+    double getCostOfWay () {
+        return this->costOfWay;
     }
 
     void setCameFrom(State<T>* caFrom) {
