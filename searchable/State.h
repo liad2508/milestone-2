@@ -30,7 +30,7 @@ public:
     double getCost() {
         return this->cost;
     }
-    void setCostOfWay(int c) {
+    void setCostOfWay(double c) {
         this->costOfWay = c;
     }
     double getCostOfWay () {
@@ -56,8 +56,8 @@ public:
     string getVisit () {
         return this->visitOrNot;
     }
-    virtual int equals(State<T>* target) = 0;
-    virtual bool operator ()(State<T> *  state1,  State<T> * state2) = 0;
+    virtual bool equals(State<T>* target) = 0;
+    virtual bool operator> (State<T> *  state1) = 0;
 };
 
 

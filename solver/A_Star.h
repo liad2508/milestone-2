@@ -17,7 +17,7 @@
 
 using namespace std;
 template<class func>
-class A_Star: public Solver<Route*, Graph*> {
+class A_Star: public Solver<Graph*, Route*> {
 private:
     func h;
 public:
@@ -26,8 +26,17 @@ public:
     }
     Route* solve(Graph* graph) {
         State<myPoint*>* start = graph->getInitialState();
-        State<myPoint*>* goal = graph->getInitialState();
+        State<myPoint*>* goal = graph->getGoalState();
         Initiate_A_Star(graph, start, goal);
+        Route* final_route = new Route();
+        State<myPoint*>* end =  graph->getGoalState();
+        start =  graph->getInitialState();
+        while(!end->equals(start)) {
+            final_route->addToRoute(end);
+            end = end->getCameFrom();
+        }
+        final_route->addToRoute(start);
+        return final_route;
     }
     void Initiate_A_Star(Graph* graph, State<myPoint*>* start, State<myPoint*>*
             target) {
@@ -50,13 +59,15 @@ public:
         Initialize_Map(vers, finalScore);
 
         // Initialize start to infinity
-        cheapScore->insert({start, start->getCost()});
+        cheapScore->at(start) = 0;
+        finalScore->at(start) =  h(start);
 
         // While the set is not empty
         while (vertexesSet->size() > 0) {
 
             // Getting the vertex with lowest value in finalScore
-            State<myPoint*>* lowestVer = Get_Min_Vertex(finalScore);
+            State<myPoint*>* lowestVer = Get_Min_Vertex(vertexesSet,
+                    finalScore);
             if (lowestVer->equals(target)) {
                 return;
             }
@@ -75,8 +86,8 @@ public:
                 // If we found a better route
                 if (distance < cheapScore->at(*neig)) {
                     (*neig)->setCameFrom(lowestVer);
-                    cheapScore->insert({(*neig), distance});
-                    finalScore->insert({(*neig), distance + h((*neig))});
+                    cheapScore->at((*neig)) =  distance;
+                    finalScore->at((*neig)) = distance + h((*neig));
                     if (vertexesSet->find((*neig)) == vertexesSet->end()) {
                         vertexesSet->insert((*neig));
                     }
@@ -96,14 +107,15 @@ public:
             the_map->insert({(*ver), f});
         }
     }
-    State<myPoint*>* Get_Min_Vertex(map<State<myPoint*>*,double>* the_map) {
+    State<myPoint*>* Get_Min_Vertex(set<State<myPoint*>*>* vertexesSet,
+            map<State<myPoint*>*,double>* the_map) {
         double min = INFINITY;
         State<myPoint*>* min_ver = nullptr;
-        auto last_ver = the_map->end();
-        for (auto ver = the_map->begin(); ver != last_ver; ver++) {
-            double val = (*ver).second;
+        auto last_ver = vertexesSet->end();
+        for (auto ver = vertexesSet->begin(); ver != last_ver; ver++) {
+            double val = the_map->at((*ver));
             if (val < min) {
-                min_ver = (*ver).first;
+                min_ver = (*ver);
                 min = val;
             }
         }

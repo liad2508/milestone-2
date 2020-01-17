@@ -69,7 +69,7 @@ void Graph::InitializeGraph(string matrix_file) {
         n = stod(*(line_splitted->at(0)));
         m = stod(*(line_splitted->at(1)));
         this->goalState = getVer(n, m);
-
+        mat_file.close();
         InitializeNeighbors(create_neig);
     }
 }
@@ -95,11 +95,11 @@ void Graph::InitializeNeighbors(vector<vector<State<myPoint *> *> *>
 
             // Down
             if (i < (line - 1)){
-                neigs->push_back(create_neig->at(i)->at(i + 1));
+                neigs->push_back(create_neig->at(i + 1)->at(j));
             }
             // Up
             if (i > 0) {
-                neigs->push_back(create_neig->at(i)->at(i - 1));
+                neigs->push_back(create_neig->at(i - 1)->at(j));
             }
             this->neighbors->insert({this->vertexes->at(vers), neigs});
             vers++;
@@ -111,6 +111,7 @@ void Graph::InitializeVisit() {
     auto end = this->getVertexes()->end();
     for(auto ver = this->getVertexes()->begin(); ver != end; ver++) {
         (*ver)->setVisit("Unvisited");
+        (*ver)->setCostOfWay(INFINITY);
     }
 }
 

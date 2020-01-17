@@ -21,6 +21,7 @@ template <class Problem, class Solution>
                 this->sol = so;
                 this->cacheManager = cache;
             }
+            Solver<Problem, Solution> * getSolver() {return sol;}
             virtual void
             handleClient(ostringstream *InputStream, ostringstream *
             OutputStream) = 0;

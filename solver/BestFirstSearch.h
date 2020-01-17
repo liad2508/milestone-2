@@ -20,16 +20,18 @@
 #include "../solution/Route.h"
 
 
-class BestFirstSearch: public Solver<Route*, Graph*> {
+class BestFirstSearch: public Solver<Graph*,Route*> {
 
 public:
     BestFirstSearch(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);
     void BestFirstSearch_visit(Graph* graph, State<myPoint*>* start, State<myPoint*>* target);
-    bool search(list<State<myPoint*>*> listToSearch, State<myPoint*>* vertex);
+    bool search(vector<State<myPoint*>*> listToSearch, State<myPoint*>* vertex);
+    void swap(State<myPoint *> * xp, State<myPoint *> * yp);
+    void bubbleSort(vector<State<myPoint *> *>* open);
+    vector<State<myPoint *> *>* bubbleSortList(list<State<myPoint *> *> *list);
 
-
-
+    State<myPoint *> *getMinNeig(list<State<myPoint *> *> *neigs);
 };
 
 

@@ -10,18 +10,17 @@ Route* DFS::solve(Graph* graph) {
 
     // Get random ending mypoint
     State<myPoint*>* endingVertex = graph->getGoalState();
-    Route* final_route = new Route();
     graph->InitializeVisit();
     DFS_Visit(graph, startingVertex, endingVertex);
 
-    // Find the route.
-    State<myPoint*>* vertex_in_route = endingVertex;
-
-    while(!vertex_in_route->equals(startingVertex)) {
-        final_route->addToRoute(vertex_in_route);
-        vertex_in_route = (Vertex*)vertex_in_route->getCameFrom();
+    Route* final_route = new Route();
+    State<myPoint*>* end =  graph->getGoalState();
+    State<myPoint*>* start =  graph->getInitialState();
+    while(!end->equals(start)) {
+        final_route->addToRoute(end);
+        end = end->getCameFrom();
     }
-    final_route->addToRoute(startingVertex);
+    final_route->addToRoute(start);
     return final_route;
 }
 
@@ -33,20 +32,22 @@ void DFS::DFS_Visit(Graph* graph, State<myPoint*> *start, State<myPoint*>
 
         // We already visited the vertex so we check if there is a better route
         if((*neig)->getVisit() == string("visited")) {
+            this->num++;
             continue;
         }
 
         // We reached the target
-        else if ((*neig)->equals(target) == 0) {
+        else if ((*neig)->equals(target)) {
             ((*neig)->setCameFrom(start));
+            this->num++;
             break;
         }
 
         // We didn't visit the vertex
         else {
             ((*neig)->setCameFrom(start));
-            DFS_Visit(graph, *neig, target);
             (*neig)->setVisit("visited");
+            DFS_Visit(graph, *neig, target);
         }
         this->num++;
     }

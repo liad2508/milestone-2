@@ -17,53 +17,58 @@
 
 #include "../clientHandler/MyClientHandler.h"
 #include "../solver/BFS.h"
-
+#include "../solver/DFS.h"
+#include "../solver/A_Star.h"
+#include "../solver/BestFirstSearch.h"
+typedef int (*func)(State<myPoint*>*);
 using namespace server_side;
 
 namespace boot {
     class Main2;
 }
+int ffff(State<myPoint*>* s) {
+    return 0;
+}
+func ttt = &ffff;
 
 class boot::Main2{
 
 public:
     static void main(string args[]) {
-            Graph* g = new Graph();
-            g->InitializeGraph("matrix_test.txt");
+//            Graph* g = new Graph();
+//            g->InitializeGraph("Matrix_Funky_0");
+            stringstream mat_file;
+            int file_num = 0;
+            int port = stoi(args[0]);
+            string* file;
+
+            // Create server
+            Server<Graph *, Route *> *mySerialServer = new MySerialServer<Graph *, Route *>();
+
+            // Searcher
+//            Solver<Graph *, Route *> *sol = new BestFirstSearch("DFS_solver");
+            Solver<Graph *, Route *> *sol = new A_Star<func>("ASTAR_solver", ttt);
 
 
-//
-//
-//            stringstream mat_file;
-//            int file_num = 0;
-//            int port = stoi(args[0]);
-//            string* file;
-//
-//            // Create server
-//            Server<Graph *, Route *> *mySerialServer = new MySerialServer<Graph *, Route *>();
-//
-//            // Searcher
-//            Solver<Graph *, Route *> *sol = new BFS("BFS_solver");
-//
-//            // Cache manager
-//            CacheManager<Route *> *cache = new FileCacheManager<Route *>();
-//
-//            // Client handler
-//            mat_file << "Matrix_Funky_" << file_num;
-//            file_num++;
-//            file = new string(mat_file.str());
-//            ClientHandler<Graph *, Route *> *clientHandler = (new MyClientHandler
-//                    (sol, cache))->setNameOfFile(file);
-//
-//            // Open server's socket
-//            mySerialServer->open(port, clientHandler, 1);
-//
-//            // Start handling
-//            thread t(&Server<Graph *, Route *>::listening, mySerialServer,
-//                     clientHandler);
-//            t.join();
+            // Cache manager
+            CacheManager<Route *> *cache = new FileCacheManager<Route *>();
+
+            // Client handler
+            mat_file << "Matrix_Funky_" << file_num;
+            file = new string(mat_file.str());
+            ClientHandler<Graph *, Route *> *clientHandler = (new MyClientHandler
+                    (sol, cache))->setNameOfFile(file);
+
+            // Open server's socket
+            mySerialServer->open(port, clientHandler, 1);
+
+            // Start handling
+            thread t(&Server<Graph *, Route *>::listening, mySerialServer,
+                     clientHandler);
+            t.join();
     }
 };
+
 
 
 #endif //MILESTONE_2_MAIN_H

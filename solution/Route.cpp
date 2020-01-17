@@ -45,37 +45,36 @@ void Route::toFile(ofstream *file) {
 
 string Route::toString() {
     stringstream route;
+    myPoint* p1;
+    myPoint* p2;
     auto end = this->route->end();
     auto start = this->route->begin();
     double weight = (*start)->getCost();
     map<string, string*>* directions = new map<string, string*>();
-    directions->insert({"(1,0)", new string("down")});
-    directions->insert({"(-1,0)", new string("up")});
-    directions->insert({"(0,1)", new string("right")});
-    directions->insert({"(0,-1)", new string("left")});
+    directions->insert({"(1, 0)", new string("down")});
+    directions->insert({"(-1, 0)", new string("up")});
+    directions->insert({"(0, 1)", new string("right")});
+    directions->insert({"(0, -1)", new string("left")});
 
     while(start != end) {
 
         // Get the 2 mypoints
-        myPoint* p1 = (*start)->getState();
+        p1 = (*start)->getState();
         start++;
-        myPoint* p2 = (*start)->getState();
-
-        // Get one of the following: (1,0) (-1,0) (0,1) (0,-1)
-        myPoint* p = *p2 - p1;
-
-        // Add more value to weight
-        weight += (*start)->getCost();
-        start++;
-        // Appending to route
         if (start != end) {
+            p2 = (*start)->getState();
+
+            // Get one of the following: (1,0) (-1,0) (0,1) (0,-1)
+            myPoint *p = *p2 - p1;
+
+            // Add more value to weight
+            weight += (*start)->getCost();
+            // Appending to route
             route << *directions->at(string(p->toStr())) << " (" << weight
                   << "), ";
-        } else {
-            route << *directions->at(string(p->toStr())) << " (" << weight
-                  << ")";
         }
     }
-
-    return string(route.str());
+    string final = route.str();
+    final = final.substr(0, (final.size() - 2));
+    return final;
 }

@@ -11,7 +11,7 @@
 #include "../solution/Route.h"
 #include "../searchable/Vertex.h"
 
-class DFS: public Solver<Route*, Graph*> {
+class DFS: public Solver<Graph*,Route*> {
 public:
     DFS(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);

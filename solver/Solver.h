@@ -18,6 +18,7 @@ public:
     virtual Solution solve(Problem problem) = 0;
     string getSolutionType() { return solution_type; }
     int getNum() { return this->num;}
+    void setNum(int n) { this->num = n;}
 };
 
 

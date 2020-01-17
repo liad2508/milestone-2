@@ -77,12 +77,12 @@ public:
             }
             *InputStream << buffer;
             clientHandler->handleClient(InputStream, OutputStream);
-            const char* answer = OutputStream->str().c_str();
-            send(client_socket , answer , strlen(answer) , 0 );
+            string* s = new string(OutputStream->str());
+            write(client_socket , s->c_str(), s->size());
         }
         if (InputStream->str() == "end") {
             close(client_socket);
-        } else if (this->run_server) {
+        } else if (!this->run_server) {
             close(this->server_socket);
         }
     }
@@ -103,6 +103,7 @@ public:
                 client_socket = accept(this->server_socket,
                                        (struct sockaddr *) &address,
                                        (socklen_t *) &address);
+                cout << "s" << endl;
                 if (client_socket == -1) {
                     throw "Error accepting client";
                 }

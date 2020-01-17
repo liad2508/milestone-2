@@ -13,7 +13,6 @@ void MyTestClientHandler::handleClient(ostringstream* InputStream,
     in << sol->getSolutionType() << "_" << problem.str();
     try {
         string s = this->cacheManager->get(in.str());
-        cout << s << endl;
         *OutputStream << s;
     } catch (const char* e){
         *OutputStream << this->sol->solve(problem.str());
