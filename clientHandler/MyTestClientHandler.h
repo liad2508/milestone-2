@@ -12,7 +12,7 @@
 #include "../cache/CacheManager.h"
 #include "../solution/Solution.h"
 
-class MyTestClientHandler: public ClientHandler<string,string> {
+class MyTestClientHandler: public ClientHandler<string,string, string> {
     Solver<string, string> *sol;
     CacheManager<string>* cacheManager;
 public:

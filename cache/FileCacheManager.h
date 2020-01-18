@@ -23,10 +23,11 @@ using namespace std;
 template <class T>
 class FileCacheManager: public CacheManager<T> {
 private:
-    unordered_map<string, T> cacheElements; // the cache elements
-    map<string, list<string>::iterator> elementsIterators; // the location of
+    map<string, T> cacheElements; // the cache elements
+    map<string, list<string>::iterator> elementsIterators; // the
+    // location of
     // the elements in the cache
-    list<string> indexes; // For the LRU algorithm
+    list<string>* indexes; // For the LRU algorithm
     int cacheCapacity; // Maximum capacity of the cache
 
 public:
@@ -34,33 +35,31 @@ public:
     // Cache Manage constructor
     FileCacheManager(int capacity) {
         this->cacheCapacity = capacity;
+        this->indexes = new list<string>;
 
     }
     FileCacheManager() {
-
+        this->cacheCapacity = 10;
+        this->indexes = new list<string>;
     }
 
     // Insert a new object to the cache
     void insert(string key, T obj) {
         // Inserting new data into the suitable file
         //this->writeToFile(key, obj);
-        stringstream filename;
-        // saving the object
-        filename << key;
-        std::ofstream outFile(filename.str());
+        std::ofstream outFile(key.c_str());
         obj->toFile(&outFile);
         outFile.close();
-        pair<string, T> newObj = pair<string, T> (key, obj);
         // If we exceeded the cache's capacity limit
         if ((this->cacheElements.size() + 1) > this->cacheCapacity) {
-            this->cacheElements.erase(indexes.front());
-            this->indexes.erase(indexes.begin());
+            this->cacheElements.erase(indexes->front());
+            this->indexes->erase(indexes->begin());
         }
-        this->cacheElements.insert(newObj);
-        this->indexes.push_back(key);
-        list<string>::iterator last = this->indexes.end();
-        this->elementsIterators.insert(pair<string,list<string>::iterator>(key,
-                                                                           (--last)));
+        this->cacheElements.insert({key, obj});
+        this->indexes->push_back(key);
+        list<string>::iterator last = this->indexes->end();
+        --last;
+        this->elementsIterators.insert({key,last});
     }
 
     // Get Object from Cache
@@ -76,23 +75,23 @@ public:
             if ( tryOpen != nullptr) {
                 fclose(tryOpen);
                 // reading
-                std::ifstream inFile(filename.str(), ios::binary | ios::in);
+                std::ifstream inFile(filename.str());
                 newObj = newObj->fromFile(&inFile);
                 inFile.close();
                 if ((this->cacheElements.size() + 1) > this->cacheCapacity) {
-                    this->cacheElements.erase(indexes.front());
-                    this->indexes.erase(indexes.begin());
+                    this->cacheElements.erase(indexes->front());
+                    this->indexes->erase(indexes->begin());
                 }
                 this->cacheElements.insert(pair<string, T>(key, newObj));
-                this->indexes.push_back(key);
+                this->indexes->push_back(key);
                 return newObj;
             }
         } else {
             newObj = cacheElements[key];
             list<string>::iterator start = this->elementsIterators[key];
-            this->indexes.erase(start);
-            this->indexes.push_back(key);
-            list<string>::iterator last = this->indexes.end();
+            this->indexes->erase(start);
+            this->indexes->push_back(key);
+            list<string>::iterator last = this->indexes->end();
             this->elementsIterators[key] = (--last);
             return newObj;
         }
@@ -101,8 +100,8 @@ public:
 
     // Foreach function
     template <class func> void foreach(const func& f) {
-        for (auto curPair = this->indexes.rbegin();
-             curPair != this->indexes.rend(); curPair++) {
+        for (auto curPair = this->indexes->rbegin();
+             curPair != this->indexes->rend(); curPair++) {
             f(this->cacheElements[*curPair]);
         }
     }

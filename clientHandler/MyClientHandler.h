@@ -14,10 +14,11 @@
 #include "../searchable/graph.h"
 
 using namespace std;
-class MyClientHandler : public ClientHandler<Graph*, Route*> {
+class MyClientHandler : public ClientHandler<Graph*, Route*, Route*> {
 
     ofstream f;
     string* nameOfFile;
+    stringstream data;
     int num = 0;
 
 public:

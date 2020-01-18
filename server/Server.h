@@ -18,9 +18,9 @@
 using namespace std;
 
 namespace server_side {
-    template <class Problem, class Solution> class Server;
+    template <class Problem, class Solution, class CacheData> class Server;
 }
-template <class Problem, class Solution>
+template <class Problem, class Solution, class CacheData>
 class server_side::Server {
 protected:
     bool run_server = true;
@@ -30,7 +30,8 @@ protected:
     sockaddr_in address;
 public:
     Server(){}
-    void open(int port, ClientHandler<Problem, Solution> *clientHandler, int
+    void open(int port, ClientHandler<Problem, Solution, CacheData>
+            *clientHandler, int
     num_of_cli) {
         this->server_socket = socket(AF_INET, SOCK_STREAM, 0);
         if (this->server_socket == -1) {
@@ -64,7 +65,8 @@ public:
     }
 
 
-    void read(int client_socket, ClientHandler<Problem, Solution> *clientHandler) {
+    void read(int client_socket, ClientHandler<Problem, Solution, CacheData>
+            *clientHandler) {
         ostringstream* InputStream = new ostringstream();
         ostringstream* OutputStream = new ostringstream();
         while(InputStream->str() != "end" && this->run_server) {
@@ -86,7 +88,7 @@ public:
             close(this->server_socket);
         }
     }
-    void listening(ClientHandler<Problem, Solution> *clientHandler) {
+    void listening(ClientHandler<Problem, Solution, CacheData> *clientHandler) {
         while (this->run_server) {
             // Setting timeout
             fd_set rfds;

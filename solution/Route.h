@@ -27,6 +27,9 @@ private:
     list<State<myPoint*>*>* route;
 public:
     Route() :Solution(){this->route = new list<State<myPoint*>*>;}
+    Route* createRoute() {
+        return this;
+    }
     void addToRoute(State<myPoint*>* ver) {
         this->route->push_front(ver);
     }

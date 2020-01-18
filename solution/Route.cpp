@@ -35,11 +35,13 @@ Route* Route::fromFile(ifstream *file) {
 
 void Route::toFile(ofstream *file) {
     auto endOfRoute = this->route->end();
-
-    // Putting data in the file in the following format:
-    // (x_1, y_1), cost_1, (x_2, y_2), cost_2, ..., (x_n, y_n), cost_n,
-    for(auto start = this->route->begin(); start != endOfRoute; start++) {
-        *file << (*start)->toString() << ", ";
+    if (this->route->size() > 0) {
+        // Putting data in the file in the following format:
+        // (x_1, y_1), cost_1, (x_2, y_2), cost_2, ..., (x_n, y_n), cost_n,
+        for (auto start = this->route->begin(); start != endOfRoute; start++) {
+            *file << (*start)->toString() << ", ";
+        }
+        *file << endl;
     }
 }
 

@@ -43,27 +43,31 @@ public:
             string* file;
 
             // Create server
-            Server<Graph *, Route *> *mySerialServer = new MySerialServer<Graph *, Route *>();
+            Server<Graph *, Route *, Route*> *mySerialServer = new
+                    MySerialServer<Graph *, Route *, Route*>();
 
             // Searcher
-//            Solver<Graph *, Route *> *sol = new BestFirstSearch("DFS_solver");
-            Solver<Graph *, Route *> *sol = new A_Star<func>("ASTAR_solver", ttt);
+            // Solver<Graph *, Route *> *sol = new BestFirstSearch("DFS_solver");
+            Solver<Graph *, Route *> *sol = new A_Star<func>
+                    ("cache/ASTAR_solver", ttt);
 
 
             // Cache manager
-            CacheManager<Route *> *cache = new FileCacheManager<Route *>();
+            CacheManager<Route*> *cache = new FileCacheManager<Route*>(10);
 
             // Client handler
-            mat_file << "Matrix_Funky_" << file_num;
+            mat_file << "matrixes/Matrix_Funky_" << file_num;
             file = new string(mat_file.str());
-            ClientHandler<Graph *, Route *> *clientHandler = (new MyClientHandler
+            ClientHandler<Graph *, Route *, Route*> *clientHandler = (new
+                    MyClientHandler
                     (sol, cache))->setNameOfFile(file);
 
             // Open server's socket
             mySerialServer->open(port, clientHandler, 1);
 
             // Start handling
-            thread t(&Server<Graph *, Route *>::listening, mySerialServer,
+            thread t(&Server<Graph *, Route *, Route*>::listening,
+                    mySerialServer,
                      clientHandler);
             t.join();
     }

@@ -10,14 +10,14 @@
 #include "../cache/CacheManager.h"
 using namespace std;
 
-template <class Problem, class Solution>
+template <class Problem, class Solution, class CacheData>
         class ClientHandler {
         protected:
             Solver<Problem, Solution> *sol;
-            CacheManager <Solution> *cacheManager;
+            CacheManager <CacheData> *cacheManager;
         public:
             ClientHandler (Solver<Problem, Solution>* so,
-            CacheManager<Solution>* cache) {
+            CacheManager<CacheData>* cache) {
                 this->sol = so;
                 this->cacheManager = cache;
             }
