@@ -37,8 +37,7 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
             Graph *graph = new Graph();
             graph->InitializeGraph(*this->nameOfFile);
 
-            this->num++;
-            matrix << "matrixes/Matrix_Funky_" << this->num;
+            matrix << "matrixes/Matrix_Funky";
             this->nameOfFile = new string(matrix.str());
             this->f = ofstream(this->nameOfFile->c_str());
             cout << *this->nameOfFile << endl;

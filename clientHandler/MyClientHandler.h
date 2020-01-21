@@ -19,7 +19,6 @@ class MyClientHandler : public ClientHandler<Graph*, Route*, Route*> {
     ofstream f;
     string* nameOfFile;
     stringstream data;
-    int num = 0;
 
 public:
     MyClientHandler (Solver<Graph*, Route*>* so, CacheManager<Route*>* cache)
