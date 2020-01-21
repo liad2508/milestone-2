@@ -53,3 +53,6 @@ void DFS::DFS_Visit(Graph* graph, State<myPoint*> *start, State<myPoint*>
     }
 }
 
+DFS * DFS::clone() {
+    return new DFS(this->solution_type);
+}

@@ -18,6 +18,7 @@ class StringReverser: public Solver<string,string> {
 public:
     StringReverser(string sol_type):Solver(sol_type){}
     string solve(string s);
+    StringReverser* clone();
 };
 
 

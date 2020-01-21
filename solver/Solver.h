@@ -19,6 +19,7 @@ public:
     string getSolutionType() { return solution_type; }
     int getNum() { return this->num;}
     void setNum(int n) { this->num = n;}
+    virtual Solver* clone() = 0;
 };
 
 

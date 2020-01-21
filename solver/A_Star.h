@@ -121,6 +121,9 @@ public:
         }
         return min_ver;
     }
+    A_Star* clone() {
+        return new A_Star(this->solution_type, this->h);
+    }
 };
 
 #endif //MILESTONE_2_A_STAR_H

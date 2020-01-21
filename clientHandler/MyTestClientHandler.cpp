@@ -20,3 +20,8 @@ void MyTestClientHandler::handleClient(ostringstream* InputStream,
         this->cacheManager->insert(in.str(), out);
     }
 }
+
+MyTestClientHandler * MyTestClientHandler::clone() {
+    return new MyTestClientHandler(this->sol->clone(),
+            this->cacheManager);
+}

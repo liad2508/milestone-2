@@ -18,8 +18,8 @@ public:
     void DFS_Visit(Graph* graph, State<myPoint*>* start, State<myPoint*>* target);
     void changeRouteWeight(Graph* graph, State<myPoint*>* v, State<myPoint*>*
             u);
-
     void InitializeVisit(Graph *graph);
+    DFS* clone();
 };
 
 

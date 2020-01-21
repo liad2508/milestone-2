@@ -51,3 +51,7 @@ void BFS::BFS_Visit(Graph *graph, State<myPoint *> *start, State<myPoint *>
     }
 
 }
+
+BFS * BFS::clone() {
+    return new BFS(this->solution_type);
+}

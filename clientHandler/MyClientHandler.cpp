@@ -26,7 +26,6 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
             if (r != NULL) {
                 *OutputStream << r->toString() << endl;
             } else {
-                cout << "Num of vers iterated: " << INFINITY << endl;
                 *OutputStream << "No Route" << endl;
             }
         } catch (const char* e) {
@@ -40,22 +39,28 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
             matrix << "matrixes/Matrix_Funky";
             this->nameOfFile = new string(matrix.str());
             this->f = ofstream(this->nameOfFile->c_str());
-            cout << *this->nameOfFile << endl;
             this->sol->setNum(0);
             try {
                 r = this->sol->solve(graph);
                 // Insert the result
                 InputStream->str("");
-                cout << "Num of vers iterated: " << this->sol->getNum() << endl;
                 *OutputStream << r->toString() << endl;
 
             } catch (const char *e) {
                 r = new Route();
-                cout << "Num of vers iterated: " << INFINITY << endl;
                 *OutputStream << "No Route" << endl;
             }
             this->cacheManager->insert(in.str(), r);
         }
     }
+}
 
+MyClientHandler* MyClientHandler::clone() {
+    MyClientHandler* c = new MyClientHandler(this->sol->clone(),
+            this->cacheManager);
+    stringstream fname;
+    this->num++;
+    fname << this->nameOfFile << this->num;
+    c->setNameOfFile(new string(fname.str()));
+    return c;
 }

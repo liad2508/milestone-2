@@ -32,6 +32,7 @@ public:
     vector<State<myPoint *> *>* bubbleSortList(list<State<myPoint *> *> *list);
 
     State<myPoint *> *getMinNeig(list<State<myPoint *> *> *neigs);
+    BestFirstSearch* clone();
 };
 
 

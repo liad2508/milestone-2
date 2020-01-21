@@ -21,6 +21,7 @@ public:
 
     void handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
+    MyTestClientHandler* clone();
 };
 
 

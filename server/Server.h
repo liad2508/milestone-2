@@ -105,7 +105,6 @@ public:
                 client_socket = accept(this->server_socket,
                                        (struct sockaddr *) &address,
                                        (socklen_t *) &address);
-                cout << "s" << endl;
                 if (client_socket == -1) {
                     throw "Error accepting client";
                 }
@@ -118,6 +117,8 @@ public:
             close(this->server_socket);
         }
     }
+    virtual void Parallel(ClientHandler<Problem, Solution, CacheData>
+            *clientHandler) = 0;
 };
 
 #endif //MILESTONE_2_SERVER_H
