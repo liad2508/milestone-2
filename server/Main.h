@@ -47,16 +47,19 @@ public:
                     MySerialServer<Graph *, Route *, Route*>();
 
             // Searcher
-            // Solver<Graph *, Route *> *sol = new BestFirstSearch("DFS_solver");
-            Solver<Graph *, Route *> *sol = new A_Star<func>
-                    ("cache/ASTAR_solver", ttt);
+        //Solver<Graph *, Route *> *sol = new BFS("cache/BFS_solver");
+        Solver<Graph *, Route *> *sol = new DFS("cache/BFS_solver");
+            //Solver<Graph *, Route *> *sol = new BestFirstSearch
+                    //("cache/BFS_solver");
+            //Solver<Graph *, Route *> *sol = new A_Star<func>
+                    //("cache/ASTAR_solver", ttt);
 
 
             // Cache manager
             CacheManager<Route*> *cache = new FileCacheManager<Route*>(10);
 
             // Client handler
-            mat_file << "matrixes/Matrix_Funky_" << file_num;
+            mat_file << "matrixes/Matrix_Funky";
             file = new string(mat_file.str());
             ClientHandler<Graph *, Route *, Route*> *clientHandler = (new
                     MyClientHandler

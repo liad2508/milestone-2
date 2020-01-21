@@ -14,6 +14,7 @@
 #include <sstream>
 #include <ostream>
 #include <istream>
+#include <mutex>
 #include <fstream>
 #include <algorithm>
 #include "CacheManager.h"
@@ -23,6 +24,10 @@ using namespace std;
 template <class T>
 class FileCacheManager: public CacheManager<T> {
 private:
+    mutex m1;
+    mutex m2;
+    mutex m3;
+    mutex m4;
     map<string, T> cacheElements; // the cache elements
     map<string, list<string>::iterator> elementsIterators; // the
     // location of
@@ -45,25 +50,32 @@ public:
 
     // Insert a new object to the cache
     void insert(string key, T obj) {
+        m1.lock();
         // Inserting new data into the suitable file
         //this->writeToFile(key, obj);
         std::ofstream outFile(key.c_str());
         obj->toFile(&outFile);
         outFile.close();
         // If we exceeded the cache's capacity limit
+        LRU(key, obj);
+        list<string>::iterator last = this->indexes->end();
+        --last;
+        this->elementsIterators.insert({key,last});
+        m1.unlock();
+    }
+    void LRU(string key, T obj) {
+        m2.lock();
         if ((this->cacheElements.size() + 1) > this->cacheCapacity) {
             this->cacheElements.erase(indexes->front());
             this->indexes->erase(indexes->begin());
         }
         this->cacheElements.insert({key, obj});
         this->indexes->push_back(key);
-        list<string>::iterator last = this->indexes->end();
-        --last;
-        this->elementsIterators.insert({key,last});
+        m2.unlock();
     }
-
     // Get Object from Cache
     T get(string key) {
+        m3.lock();
         T newObj;
         if (this->cacheElements.find(key) == this->cacheElements.end()) {
             stringstream filename;
@@ -78,12 +90,8 @@ public:
                 std::ifstream inFile(filename.str());
                 newObj = newObj->fromFile(&inFile);
                 inFile.close();
-                if ((this->cacheElements.size() + 1) > this->cacheCapacity) {
-                    this->cacheElements.erase(indexes->front());
-                    this->indexes->erase(indexes->begin());
-                }
-                this->cacheElements.insert(pair<string, T>(key, newObj));
-                this->indexes->push_back(key);
+                LRU(key, newObj);
+                m3.unlock();
                 return newObj;
             }
         } else {
@@ -93,8 +101,10 @@ public:
             this->indexes->push_back(key);
             list<string>::iterator last = this->indexes->end();
             this->elementsIterators[key] = (--last);
+            m3.unlock();
             return newObj;
         }
+        m3.unlock();
         throw "Data is not in cache";
     }
 
