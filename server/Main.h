@@ -36,11 +36,40 @@ class boot::Main2{
 
 public:
     static void main(string args[]) {
+
         string* file = new string("matrixes/Matrix_Funky");
         CacheManager<Route*> *cache = new FileCacheManager<Route*>(10);
         Solver<Graph *, Route *> *sol = new A_Star<func>
                 ("cache/ASTAR_solver", ttt);
         ClientHandler<Graph *, Route *, Route*> *clientHandler = (new
+
+//            Graph* g = new Graph();
+//            g->InitializeGraph("Matrix_Funky_0");
+            stringstream mat_file;
+            int file_num = 0;
+            int port = stoi(args[0]);
+            string* file;
+
+            // Create server
+            Server<Graph *, Route *, Route*> *mySerialServer = new
+                    MySerialServer<Graph *, Route *, Route*>();
+
+            // Searcher
+        //Solver<Graph *, Route *> *sol = new BFS("cache/BFS_solver");
+        Solver<Graph *, Route *> *sol = new DFS("cache/BFS_solver");
+            //Solver<Graph *, Route *> *sol = new BestFirstSearch
+                    //("cache/BFS_solver");
+            //Solver<Graph *, Route *> *sol = new A_Star<func>
+                    //("cache/ASTAR_solver", ttt);
+
+
+            // Cache manager
+            CacheManager<Route*> *cache = new FileCacheManager<Route*>(10);
+
+            // Client handler
+            mat_file << "matrixes/Matrix_Funky";
+            file = new string(mat_file.str());
+            ClientHandler<Graph *, Route *, Route*> *clientHandler = (new
                     MyClientHandler
                     (sol, cache))->setNameOfFile(file);
         Server<Graph *, Route *, Route*> *s = new MyParallelServer<Graph *,
