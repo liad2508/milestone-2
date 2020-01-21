@@ -131,3 +131,8 @@ State<myPoint *> *BestFirstSearch::getMinNeig(list<State<myPoint *> *> *neigs) {
     }
     return minVec;
 }
+
+
+BestFirstSearch * BestFirstSearch::clone() {
+    return new BestFirstSearch(this->solution_type);
+}

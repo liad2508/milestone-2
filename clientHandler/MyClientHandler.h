@@ -28,6 +28,7 @@ public:
     void handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
 
+    MyClientHandler *clone();
 };
 
 

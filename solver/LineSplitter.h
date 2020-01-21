@@ -22,7 +22,7 @@ public:
         this->delimeter = del;
     }
     vector<string*>* solve(string* problem);
-
+    LineSplitter* clone();
 };
 
 

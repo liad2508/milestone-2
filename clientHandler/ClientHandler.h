@@ -25,6 +25,7 @@ template <class Problem, class Solution, class CacheData>
             virtual void
             handleClient(ostringstream *InputStream, ostringstream *
             OutputStream) = 0;
+            virtual ClientHandler* clone() = 0;
 
         };
 

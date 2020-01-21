@@ -10,3 +10,6 @@ string StringReverser::solve(string problem) {
     reverse(st.begin(), st.end());
     return st;
 }
+StringReverser * StringReverser::clone() {
+    return new StringReverser(this->solution_type);
+}

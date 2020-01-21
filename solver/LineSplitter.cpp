@@ -36,3 +36,7 @@ vector<string*>* LineSplitter::solve(string* problem) {
     }
     return splitted;
 }
+
+LineSplitter * LineSplitter::clone() {
+    return new LineSplitter(this->solution_type, this->delimeter);
+}
