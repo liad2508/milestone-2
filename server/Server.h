@@ -13,6 +13,7 @@
 #include <cstring>
 #include "Server.h"
 #include <thread>
+#include <mutex>
 #include <pthread.h>
 #include "../clientHandler/ClientHandler.h"
 using namespace std;
@@ -27,6 +28,7 @@ protected:
     thread server_running;
     int server_socket;
     int num_of_clients;
+    mutex m;
     sockaddr_in address;
 public:
     Server(){}
@@ -80,7 +82,9 @@ public:
             *InputStream << buffer;
             clientHandler->handleClient(InputStream, OutputStream);
             string* s = new string(OutputStream->str());
+            m.lock();
             write(client_socket , s->c_str(), s->size());
+            m.unlock();
         }
         if (InputStream->str() == "end") {
             close(client_socket);
