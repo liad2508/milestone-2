@@ -58,6 +58,7 @@ public:
     }
     virtual bool equals(State<T>* target) = 0;
     virtual bool operator> (State<T> *  state1) = 0;
+    ~State(){}
 };
 
 

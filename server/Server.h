@@ -28,7 +28,8 @@ protected:
     thread server_running;
     int server_socket;
     int num_of_clients;
-    mutex m;
+    mutex m1;
+    mutex m2;
     sockaddr_in address;
 public:
     Server(){}
@@ -71,7 +72,7 @@ public:
             *clientHandler) {
         ostringstream* InputStream = new ostringstream();
         ostringstream* OutputStream = new ostringstream();
-        while(InputStream->str() != "end" && this->run_server) {
+        while(InputStream->str() != "end\n" && this->run_server) {
             char buffer[1024] = {0};
             InputStream->str("");
             OutputStream ->str("");
@@ -80,11 +81,13 @@ public:
                 break;
             }
             *InputStream << buffer;
-            clientHandler->handleClient(InputStream, OutputStream);
-            string* s = new string(OutputStream->str());
-            m.lock();
-            write(client_socket , s->c_str(), s->size());
-            m.unlock();
+            bool send = clientHandler->handleClient(InputStream, OutputStream);
+            if (send) {
+                m1.lock();
+                string* s = new string(OutputStream->str());
+                write(client_socket, s->c_str(), s->size());
+                m1.unlock();
+            }
         }
         if (InputStream->str() == "end") {
             close(client_socket);
@@ -93,11 +96,12 @@ public:
         }
     }
     void listening(ClientHandler<Problem, Solution, CacheData> *clientHandler) {
+        cout << clientHandler->num << endl;
         while (this->run_server) {
             // Setting timeout
             fd_set rfds;
             struct timeval timeout;
-            timeout.tv_sec = 30;
+            timeout.tv_sec = 120;
             timeout.tv_usec = 0;
             FD_ZERO(&rfds);
             FD_SET(this->server_socket, &rfds);
@@ -112,6 +116,7 @@ public:
                 if (client_socket == -1) {
                     throw "Error accepting client";
                 }
+                cout << "connected to server " << clientHandler->num << endl;
             } else {
                 break;
             }

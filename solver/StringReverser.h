@@ -19,6 +19,7 @@ public:
     StringReverser(string sol_type):Solver(sol_type){}
     string solve(string s);
     StringReverser* clone();
+    ~StringReverser(){}
 };
 
 

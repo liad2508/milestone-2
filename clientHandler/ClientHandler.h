@@ -16,17 +16,17 @@ template <class Problem, class Solution, class CacheData>
             Solver<Problem, Solution> *sol;
             CacheManager <CacheData> *cacheManager;
         public:
+            int num = 0;
             ClientHandler (Solver<Problem, Solution>* so,
             CacheManager<CacheData>* cache) {
                 this->sol = so;
                 this->cacheManager = cache;
             }
             Solver<Problem, Solution> * getSolver() {return sol;}
-            virtual void
-            handleClient(ostringstream *InputStream, ostringstream *
+            virtual bool handleClient(ostringstream *InputStream, ostringstream *
             OutputStream) = 0;
             virtual ClientHandler* clone() = 0;
-
+            ~ClientHandler(){}
         };
 
 

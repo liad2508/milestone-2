@@ -10,4 +10,6 @@ int main(int argc, char** argv) {
     } catch (std::logic_error e) {      // We define the port to 5600
          args[0] = string("5600");
     }
+    boot::Main2::main(args);
+    return 0;
 }

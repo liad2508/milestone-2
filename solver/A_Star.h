@@ -36,6 +36,7 @@ public:
             end = end->getCameFrom();
         }
         final_route->addToRoute(start);
+        final_route->flip();
         return final_route;
     }
     void Initiate_A_Star(Graph* graph, State<myPoint*>* start, State<myPoint*>*
@@ -121,9 +122,11 @@ public:
         }
         return min_ver;
     }
+
     A_Star* clone() {
-        return new A_Star(this->solution_type, this->h);
+        return new A_Star<func>(this->solution_type, this->h);
     }
+    ~A_Star(){};
 };
 
 #endif //MILESTONE_2_A_STAR_H

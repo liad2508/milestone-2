@@ -11,7 +11,7 @@ vector<string*>* LineSplitter::solve(string* problem) {
     stringstream curr_c;
     bool deldel = false;
     auto delEnd = this->delimeter->end();
-
+    final.str("");
     for(auto c = problem->begin(); c != end_problem; c++) {
         curr_c.str("");
         curr_c << *c;
@@ -25,7 +25,9 @@ vector<string*>* LineSplitter::solve(string* problem) {
         if (!deldel) {
             final << *c;
         } else {
-            splitted->push_back(new string(final.str()));
+            if (final.str() != "") {
+                splitted->push_back(new string(final.str()));
+            }
             final.str("");
             deldel = false;
         }

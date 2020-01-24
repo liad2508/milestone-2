@@ -54,6 +54,11 @@ public:
     void InitializeVisit();
 
     State<myPoint *> * getVer(int n, int m);
+
+    ~Graph(){
+        delete vertexes;
+        delete neighbors;
+    }
 };
 
 

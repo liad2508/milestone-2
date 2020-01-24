@@ -21,6 +21,7 @@ Route * BestFirstSearch::solve(Graph *graph) {
         }
     }
     final_route->addToRoute(graph->getInitialState());
+    final_route->flip();
     return final_route;
 
 }

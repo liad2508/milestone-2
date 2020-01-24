@@ -5,7 +5,7 @@
 #include <sstream>
 #include "MyTestClientHandler.h"
 
-void MyTestClientHandler::handleClient(ostringstream* InputStream,
+bool MyTestClientHandler::handleClient(ostringstream* InputStream,
         ostringstream *OutputStream) {
     stringstream in;
     stringstream problem;

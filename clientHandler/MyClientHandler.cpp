@@ -5,16 +5,20 @@
 #include "MyClientHandler.h"
 
 MyClientHandler* MyClientHandler::setNameOfFile(string *nameOfFile) {
+    if(this->f.is_open()) {
+        this->f.close();
+    }
     this->f = ofstream(*nameOfFile);
-    MyClientHandler::nameOfFile = nameOfFile;
-    return this;
+    this->nameOfFile = new string(*nameOfFile);
 }
 
-void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *OutputStream) {
+bool MyClientHandler::handleClient(ostringstream *InputStream, ostringstream
+*OutputStream) {
     hash<string> str_hash;
-    if (InputStream->str() != "end") {
-        this->f << InputStream->str() << "\n";
+    if (InputStream->str() != "end\n") {
+        this->f << InputStream->str();
         this->data << InputStream->str();
+        return false;
     } else {
         stringstream in;
         stringstream problem;
@@ -24,10 +28,12 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
             // get result if exists
             Route* r = this->cacheManager->get(file_name)->createRoute();
             if (r != NULL) {
+                cout << this->data.str() << endl;
                 *OutputStream << r->toString() << endl;
             } else {
                 *OutputStream << "No Route" << endl;
             }
+            return true;
         } catch (const char* e) {
             Route *r = NULL;
             this->f << InputStream->str() << "\n";
@@ -35,9 +41,6 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
             stringstream matrix;
             Graph *graph = new Graph();
             graph->InitializeGraph(*this->nameOfFile);
-
-            matrix << "matrixes/Matrix_Funky";
-            this->nameOfFile = new string(matrix.str());
             this->f = ofstream(this->nameOfFile->c_str());
             this->sol->setNum(0);
             try {
@@ -45,12 +48,14 @@ void MyClientHandler::handleClient(ostringstream *InputStream, ostringstream *Ou
                 // Insert the result
                 InputStream->str("");
                 *OutputStream << r->toString() << endl;
+                cout << "sending for server " << this->num << endl;
 
             } catch (const char *e) {
                 r = new Route();
                 *OutputStream << "No Route" << endl;
             }
             this->cacheManager->insert(in.str(), r);
+            return true;
         }
     }
 }
@@ -59,8 +64,11 @@ MyClientHandler* MyClientHandler::clone() {
     MyClientHandler* c = new MyClientHandler(this->sol->clone(),
             this->cacheManager);
     stringstream fname;
+    c->nameOfFile = new string(*this->nameOfFile);
     this->num++;
-    fname << this->nameOfFile << this->num;
+    c->num = this->num;
+    fname << *c->nameOfFile << "_";
+    fname << this->num;
     c->setNameOfFile(new string(fname.str()));
     return c;
 }

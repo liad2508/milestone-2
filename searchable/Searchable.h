@@ -22,6 +22,7 @@ public:
     T getInitialState() { return this->initialState; }
     T getGoalState() {return this->goalState;}
     virtual list<T>* getAllPossibleStates(T s) = 0;
+    ~Searchable(){}
 };
 
 

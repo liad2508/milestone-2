@@ -19,9 +19,13 @@ public:
     MyTestClientHandler (Solver<string, string>* so,
             CacheManager<string>* cache) : ClientHandler(so,cache){}
 
-    void handleClient (ostringstream* InputStream, ostringstream*
+    bool handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
     MyTestClientHandler* clone();
+    ~MyTestClientHandler(){
+        delete sol;
+        delete cacheManager;
+    }
 };
 
 

@@ -21,7 +21,6 @@
 
 
 class BestFirstSearch: public Solver<Graph*,Route*> {
-
 public:
     BestFirstSearch(string sol_type): Solver(sol_type){}
     Route* solve(Graph* graph);

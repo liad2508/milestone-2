@@ -21,6 +21,7 @@ Route* DFS::solve(Graph* graph) {
         end = end->getCameFrom();
     }
     final_route->addToRoute(start);
+    final_route->flip();
     return final_route;
 }
 

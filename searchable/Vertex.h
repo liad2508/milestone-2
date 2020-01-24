@@ -21,6 +21,7 @@ public:
         return (this->getCostOfWay()> state1->getCostOfWay());
     }
     string toString();
+    ~Vertex(){}
 };
 
 

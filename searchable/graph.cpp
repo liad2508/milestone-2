@@ -31,7 +31,7 @@ void Graph::InitializeGraph(string matrix_file) {
     mat_file = ifstream(matrix_file.c_str());
     if(mat_file.is_open()) {
         // Initialize the vertexes in from file
-        while(getline(mat_file, line) && curr_ver <= (num_of_lines - 1)) {
+        while(getline(mat_file, line) && curr_ver <= (num_of_lines - 2)) {
             matrix << line.substr(0, (line.size() - 2)) << ",";
             line.erase(remove_if(line.begin(), line.end(), ::isspace), line.end());
             vector<string*>* line_splitted = splitter->solve(&line);

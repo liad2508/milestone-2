@@ -88,7 +88,11 @@ public:
                 fclose(tryOpen);
                 // reading
                 std::ifstream inFile(filename.str());
-                newObj = newObj->fromFile(&inFile);
+                if (filename.str() ==
+                "cache/ASTAR_solver_15917437370524430963") {
+                    cout << "ss" << endl;
+                }
+                newObj = this->cacheElements["default"]->fromFile(&inFile);
                 inFile.close();
                 LRU(key, newObj);
                 m3.unlock();
@@ -114,6 +118,9 @@ public:
              curPair != this->indexes->rend(); curPair++) {
             f(this->cacheElements[*curPair]);
         }
+    }
+    ~FileCacheManager(){
+        delete this->indexes;
     }
 };
 

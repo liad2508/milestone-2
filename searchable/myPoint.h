@@ -40,6 +40,7 @@ public:
     string toStr();
     myPoint* operator-(myPoint* p);
     bool equals(myPoint* p);
+    ~myPoint(){}
 };
 
 

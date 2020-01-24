@@ -13,15 +13,23 @@ private:
     vector<thread> servers;
 public:
     void Parallel(ClientHandler<Problem, Solution, CacheData> *clientHandler) {
+        int finished = 0;
         for (int waiting_for_all = this->num_of_clients; waiting_for_all > 0;
              waiting_for_all--) {
             this->servers.push_back(thread(&server_side::Server<Problem,
-                    Solution, CacheData>::listening, this, clientHandler->clone()));
+                                                   Solution, CacheData>::listening, this,
+                                           clientHandler->clone()));
         }
         auto last_server = this->servers.end();
-        for(auto server = this->servers.begin(); server != last_server; server++) {
+        for (auto server = this->servers.begin();
+             server != last_server; server++) {
             server->join();
+//                if (!server->joinable()) {
+//                    finished++;
+//                    cout << finished << endl;
+//                }
         }
+
     }
 };
 

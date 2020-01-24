@@ -15,20 +15,23 @@
 
 using namespace std;
 class MyClientHandler : public ClientHandler<Graph*, Route*, Route*> {
-
+private:
     ofstream f;
     string* nameOfFile;
     stringstream data;
-
 public:
+
     MyClientHandler (Solver<Graph*, Route*>* so, CacheManager<Route*>* cache)
     : ClientHandler(so, cache){}
     MyClientHandler* setNameOfFile(string *nameOfFile);
 
-    void handleClient (ostringstream* InputStream, ostringstream*
+    bool handleClient (ostringstream* InputStream, ostringstream*
     OutputStream);
 
     MyClientHandler *clone();
+    ~MyClientHandler(){
+        delete nameOfFile;
+    }
 };
 
 

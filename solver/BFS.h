@@ -18,6 +18,7 @@ public:
     void BFS_Visit(Graph* graph, State<myPoint*>* start, State<myPoint*>*
             target);
     BFS* clone();
+    ~BFS(){}
 };
 
 

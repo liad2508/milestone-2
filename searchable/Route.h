@@ -26,6 +26,9 @@ Route() {
 void addToRoute(State<string>* ver) {
     this->route->push_front(ver);
 }
+~Route(){
+    delete route;
+}
 };
 
 

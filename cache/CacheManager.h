@@ -11,10 +11,10 @@
 using namespace std;
 template <class T>
 class CacheManager {
-
 public:
     virtual void insert(string key, T obj) = 0;
     virtual T get(string key) = 0;
+    ~CacheManager(){}
 };
 
 
