@@ -1,5 +1,5 @@
 # milestone-2
-
+Link to github - https://github.com/idan57/milestone-2
 ## Introduction
 
 In this milestone we have created a program based on some well known **"Design Patterns"** includeing bridge, state, etc.
