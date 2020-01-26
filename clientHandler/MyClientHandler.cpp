@@ -28,7 +28,6 @@ bool MyClientHandler::handleClient(ostringstream *InputStream, ostringstream
             // get result if exists
             Route* r = this->cacheManager->get(file_name)->createRoute();
             if (r != NULL) {
-                cout << this->data.str() << endl;
                 *OutputStream << r->toString() << endl;
             } else {
                 *OutputStream << "No Route" << endl;
@@ -48,7 +47,6 @@ bool MyClientHandler::handleClient(ostringstream *InputStream, ostringstream
                 // Insert the result
                 InputStream->str("");
                 *OutputStream << r->toString() << endl;
-                cout << "sending for server " << this->num << endl;
 
             } catch (const char *e) {
                 r = new Route();

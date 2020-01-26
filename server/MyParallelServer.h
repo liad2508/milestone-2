@@ -24,10 +24,6 @@ public:
         for (auto server = this->servers.begin();
              server != last_server; server++) {
             server->join();
-//                if (!server->joinable()) {
-//                    finished++;
-//                    cout << finished << endl;
-//                }
         }
 
     }

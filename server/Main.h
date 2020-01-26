@@ -57,7 +57,7 @@ public:
         s->open(stoi(args[0]),clientHandler, 10);
         s->Parallel(clientHandler);
 
-        
+
         /*** Serial Server option
             Graph* g = new Graph();
             g->InitializeGraph("Matrix_Funky_0");

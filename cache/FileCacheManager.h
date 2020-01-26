@@ -88,10 +88,6 @@ public:
                 fclose(tryOpen);
                 // reading
                 std::ifstream inFile(filename.str());
-                if (filename.str() ==
-                "cache/ASTAR_solver_15917437370524430963") {
-                    cout << "ss" << endl;
-                }
                 newObj = this->cacheElements["default"]->fromFile(&inFile);
                 inFile.close();
                 LRU(key, newObj);

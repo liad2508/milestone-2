@@ -25,11 +25,9 @@ template <class Problem, class Solution, class CacheData>
 class server_side::Server {
 protected:
     bool run_server = true;
-    thread server_running;
     int server_socket;
     int num_of_clients;
     mutex m1;
-    mutex m2;
     sockaddr_in address;
 public:
     Server(){}
@@ -96,7 +94,6 @@ public:
         }
     }
     void listening(ClientHandler<Problem, Solution, CacheData> *clientHandler) {
-        cout << clientHandler->num << endl;
         while (this->run_server) {
             // Setting timeout
             fd_set rfds;
@@ -116,7 +113,7 @@ public:
                 if (client_socket == -1) {
                     throw "Error accepting client";
                 }
-                cout << "connected to server " << clientHandler->num << endl;
+                cout << "Connected to server " << clientHandler->num << endl;
             } else {
                 break;
             }
