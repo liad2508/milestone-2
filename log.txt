@@ -1,0 +1,357 @@
+commit 71e0da279577fe45d91f816854ef652544e014c2
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sun Jan 26 18:15:56 2020 +0200
+
+    Add files via upload
+
+commit 693b2be3d4c299a65791f9fe5b3b096744693b73
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sun Jan 26 18:15:11 2020 +0200
+
+    Update README.md
+
+commit 4b2226e1eb3371575d3c01253467dcf5b62e28a3
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 01:29:34 2020 +0200
+
+    Update README.md
+
+commit 8eea3b37259c90c725aab57f81c94604bd15b480
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 01:28:39 2020 +0200
+
+    Update README.md
+
+commit f8d178356ef83c16eb4e27ddf1b50927a6f8503b
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 01:18:03 2020 +0200
+
+    Add files via upload
+
+commit f74579a24ccc64e69a36ffad3dab274b265a29a1
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:37:44 2020 +0200
+
+    Add files via upload
+
+commit f5c7d36783aa8567d052138c2d07bcade07982cd
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:33:09 2020 +0200
+
+    Delete a.out
+
+commit 4b2b91f84daf96278b47a010a3f40aedd1e6bf64
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:32:44 2020 +0200
+
+    Delete Main.h
+
+commit e12be80e46a642fbbc3b5d46fac12a5dcf2decef
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:32:29 2020 +0200
+
+    Delete Server.h
+
+commit 4a049bbcc0d32ea6c7b9bd214352b737a02bb338
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:32:13 2020 +0200
+
+    Delete Server.cpp
+
+commit 66fdd7e9bfcf6601d9a9f0e1fc00322927e777b4
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:32:01 2020 +0200
+
+    Delete MySerialServer.h
+
+commit 8ea31676439ae473f076ef1817d9dfa871a746a9
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:31:51 2020 +0200
+
+    Delete MyParallelServer.h
+
+commit 02952492c2e18749c13f4aaa90ea03abb8ff930d
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:31:40 2020 +0200
+
+    Delete MySerialServer.cpp
+
+commit 7a3b87e13745291216d3f23e9206408d56a82736
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 25 00:31:19 2020 +0200
+
+    Delete MyParallelServer.cpp
+
+commit 3f5f0be7151714d24885602600d1c8fe17f695f0
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 23 22:04:25 2020 +0200
+
+    Update Server.h
+
+commit 6581171fda8b1b2d835c68cd4cd4e5b9b308011e
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 23 22:03:36 2020 +0200
+
+    Add files via upload
+
+commit 4770cce7bd27bd88c502d27465687b7065216faf
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Tue Jan 21 17:24:47 2020 +0200
+
+    Idan (#4)
+    
+    * Add files via upload
+    
+    * Add files via upload
+
+commit c7e60dc1cc23da80bb6dff3864cee3afbfeac27b
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Tue Jan 21 14:33:51 2020 +0200
+
+    Add files via upload
+
+commit ff6263fefc846bc3df7932a57c719a1a905fb22e
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Mon Jan 20 22:03:31 2020 +0200
+
+    Add files via upload
+
+commit 0b14781fc9d0b9060144a97f546ce811f4e0de18
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sun Jan 19 18:15:22 2020 +0200
+
+    Add files via upload
+
+commit becf721b743ce08dfd2cc76f491c7eed07ccdfb5
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 18 16:46:19 2020 +0200
+
+    Add files via upload
+
+commit c143e9f531a641deb7e9d31523bfaf61fbb3d1e0
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 17 04:45:28 2020 +0200
+
+    Add files via upload
+
+commit 9448407ad4e54a403a4748324d4c3f828b7abc2f
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 16 22:18:20 2020 +0200
+
+    Add files via upload
+
+commit 6e6bb2a3278277aa81b4cd32f1c605393dbfb328
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 18:07:54 2020 +0200
+
+    Update Vertex.h
+
+commit 4d1cf6d1d4038e7ec75e20fd40b6c324af4e465a
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 18:06:27 2020 +0200
+
+    Update State.h
+
+commit 3c6e980c19654fb064e7675b7f510b519b50f0f6
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 17:34:24 2020 +0200
+
+    Update State.h
+
+commit 6c9bbbd861b7c5167ad3b12aca776151520e3842
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 16 17:29:55 2020 +0200
+
+    Add files via upload
+
+commit 191d55a4d36c291f08993199786b0ef4523e7872
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 17:29:42 2020 +0200
+
+    Update Vertex.h
+
+commit 7ec5db2d58f39420d3e1110c36bcafba42418f81
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 17:27:37 2020 +0200
+
+    Update State.h
+
+commit 43c9adbb8e35491e45c54b3c4e67f73331b88308
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 16 17:24:34 2020 +0200
+
+    Add files via upload
+
+commit 69c6d499ca2c40194fa7a9425279e234b1e5bccc
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Tue Jan 14 19:13:32 2020 +0200
+
+    Add files via upload
+
+commit 9c9bc2d05f902e21e3595dedb3f9dff80854eb26
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Tue Jan 14 00:32:10 2020 +0200
+
+    Add files via upload
+
+commit c9a9222c11de12bb078ff6b11f2bf76d82c2d198
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Tue Jan 14 00:30:40 2020 +0200
+
+    Add files via upload
+
+commit 48c3ea01dec8e5af92893898d42f8cea97f66d39
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Tue Jan 14 00:26:08 2020 +0200
+
+    Add files via upload
+
+commit a3ab3285ae19d2e28ac9e76a309d97b58d8fe546
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sun Jan 12 14:36:52 2020 +0200
+
+    Add files via upload
+
+commit 8881ba11496b35ae9b2d57ae2bb090347ddb95d2
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Sat Jan 11 13:43:03 2020 +0200
+
+    Add files via upload
+
+commit 4a62afa08b0eb34a6bc745e4a0b8c3d16ddfd7e0
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 22:01:12 2020 +0200
+
+    Update README.md
+
+commit bc954bb9f5755d73f6d0d08c53bafd67bcc160f0
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 21:51:41 2020 +0200
+
+    Add files via upload
+
+commit 4a5015a14fe485a69e85ea7e27f6679f3a14aaa9
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:44:43 2020 +0200
+
+    Delete Solver.h
+
+commit 1dd776a10a74a0a0c180845c39c37412e1be6933
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:44:22 2020 +0200
+
+    Delete Solver.cpp
+
+commit 2a2add9a1f2b7510a964a324a5e54fa6470c9334
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:44:11 2020 +0200
+
+    Delete Server.h
+
+commit ea692a69eefa72be582584266ec9b982da85e6d6
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:44:01 2020 +0200
+
+    Delete Server.cpp
+
+commit a656ae1b53cce404d1736016f67fbd2be58ca585
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:43:40 2020 +0200
+
+    Delete MyTestClientHandler.h
+
+commit 2568d0d9af620c9f55b67d9a890ea6f4cec1de6e
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:43:16 2020 +0200
+
+    Delete MyTestClientHandler.cpp
+
+commit f3feaeb19b6c31ac181caa2916798d3bd5f9be2c
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:43:11 2020 +0200
+
+    Delete MySerialServer.h
+
+commit c5ab63ba5ae6e9da82c5e4193ae1e91c2a577fdf
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:43:04 2020 +0200
+
+    Delete MySerialServer.cpp
+
+commit e2aa4c2396afb659a71aff045c25f4b8a34018e2
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:42:26 2020 +0200
+
+    Delete MyParallelServer.h
+
+commit ec84d2ef2bfbb4139284ec7390803dff7545012e
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:42:07 2020 +0200
+
+    Delete MyParallelServer.cpp
+
+commit e32defad3cebd490dc898c4358772746b38964b5
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:41:57 2020 +0200
+
+    Delete FileCacheManager.h
+
+commit b2011914711ebe84c0c24762c54554e279b64e8c
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:41:32 2020 +0200
+
+    Delete FileCacheManager.cpp
+
+commit a574edc2f40beea4abd0032ff0988a106b70f35f
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:41:08 2020 +0200
+
+    Delete ClientHandler.h
+
+commit 9befcb49a166c8b0f9ec69d975e5bc4cc45b93c0
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:41:02 2020 +0200
+
+    Delete ClientHandler.cpp
+
+commit 0952a1836e6cd31dfba74a7e25e2d7e012b56c2a
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:40:55 2020 +0200
+
+    Delete CacheManager.h
+
+commit e7178a393fd61f14d84f1c44bd107d80b33f4055
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 18:39:59 2020 +0200
+
+    Delete CacheManager.cpp
+
+commit be56c693ecdbb63fb3509cd8cb6b9c7176051bd9
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 02:26:11 2020 +0200
+
+    Add files via upload
+
+commit 55355e44321d4a6f8cdd90eb15d1d9ee032cfd16
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Fri Jan 10 01:39:11 2020 +0200
+
+    Add files via upload
+
+commit 871520f871132f7ea16ef6f94840e076b197c0f8
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 9 19:14:51 2020 +0200
+
+    Add files via upload
+
+commit e9b41ca0ad886f958d5a4d9e239466be16bbd2bb
+Author: liad2508 <58739913+liad2508@users.noreply.github.com>
+Date:   Thu Jan 9 17:06:09 2020 +0200
+
+    Add files via upload
+
+commit c30598df5dec7793cf2ccbe43c9d69416195a480
+Author: idan57 <47928001+idan57@users.noreply.github.com>
+Date:   Thu Jan 9 16:59:56 2020 +0200
+
+    Initial commit
